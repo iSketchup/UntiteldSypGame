@@ -15,11 +15,24 @@ func  trigger():
 func mogg():
 	print("mogged")
 
+func MakeDamage():
+	print("+5 Damage")
 	
-enum aura {
-	arscg,
-	sigma,
+func MoreCards():
+	pass
+	
+func MoreEnergie():
+	pass
+	
+enum actions {
+	MakeDamage,
+	MoreCards,
+	MoreEnergie,
 	mogg
 }
 
-@export var x : aura
+@export var Action: actions
+
+
+func callFunc():
+	call(actions.keys()[Action])

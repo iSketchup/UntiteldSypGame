@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_gtq0e")
-x = 2
+Description = "=Crust"
+Action = 3
 metadata/_custom_type_script = "uid://cb6p1usrrowo8"
