@@ -1,8 +1,11 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://o17iudcvbtb8"]
 
 [ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="1_p7mlk"]
-
+[ext_resource type="Texture2D" uid="uid://b7om846kun1yl" path="res://assets/moreEnergy.png" id="1_yqsc1"]
 
 [resource]
 script = ExtResource("1_p7mlk")
+image = ExtResource("1_yqsc1")
+Description = "gain +6-7 Energy"
+Action = 2
 metadata/_custom_type_script = "uid://cb6p1usrrowo8"

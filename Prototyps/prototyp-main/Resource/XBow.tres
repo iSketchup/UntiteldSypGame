@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://c0x8jt2nq30tl"]
 
+[ext_resource type="Texture2D" uid="uid://8hgi1pu48dbx" path="res://assets/x-bow.png" id="1_324bu"]
 [ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="1_walug"]
-
 
 [resource]
 script = ExtResource("1_walug")
+image = ExtResource("1_324bu")
+Description = "gain 7 firerate"
 metadata/_custom_type_script = "uid://cb6p1usrrowo8"

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://declk2sl7yh70"]
 
-[ext_resource type="Texture2D" uid="uid://d38giyxvkhl6g" path="res://example/Random Upgrades/icons/all_icons/all_icons_3.tres" id="1_drejb"]
+[ext_resource type="Texture2D" uid="uid://d38giyxvkhl6g" path="res://Example/Random Upgrades/icons/all_icons/all_icons_3.tres" id="1_drejb"]
 
 
 [node name="Card" type="Control" unique_id=1847949309]

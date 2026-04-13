@@ -1,6 +1,6 @@
 [gd_resource type="AtlasTexture" format=3 uid="uid://dkc8d2p0xbl1n"]
 
-[ext_resource type="Texture2D" uid="uid://b7e3wp7i33ye5" path="res://example/Random Upgrades/icons/all_icons.png" id="1_lk0lg"]
+[ext_resource type="Texture2D" uid="uid://b7e3wp7i33ye5" path="res://Example/Random Upgrades/icons/all_icons.png" id="1_lk0lg"]
 
 
 [resource]
