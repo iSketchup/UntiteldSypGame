@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crm8q2e268fck"
-path="res://.godot/imported/Giving.png-7dcfdd50c2c54551a2de69a2a3929238.ctex"
+path="res://.godot/imported/Giving.png-c30d8cd5b7ca3dff8908a75bda0df283.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Giving.png"
-dest_files=["res://.godot/imported/Giving.png-7dcfdd50c2c54551a2de69a2a3929238.ctex"]
+source_file="res://assets/Giving.png"
+dest_files=["res://.godot/imported/Giving.png-c30d8cd5b7ca3dff8908a75bda0df283.ctex"]
 
 [params]
 
