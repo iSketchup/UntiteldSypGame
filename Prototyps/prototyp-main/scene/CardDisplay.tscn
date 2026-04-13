@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://bupadel7ih2ft"]
 
-[node name="Control" type="Control" unique_id=158854072]
+[ext_resource type="Script" uid="uid://khq23beeaidx" path="res://script/card_display.gd" id="1_y7ahd"]
+
+[node name="DisplayDaddy" type="CanvasLayer" unique_id=1819109481]
+script = ExtResource("1_y7ahd")
+
+[node name="Control" type="Control" parent="." unique_id=1256237736]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,7 +13,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1386087435]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=180193106]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.972549, 0.6431373, 0.9490196, 1)
+
+[node name="Con_Display" type="HBoxContainer" parent="Control" unique_id=1386087435]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -17,3 +34,4 @@ anchor_bottom = 1.0
 offset_top = -181.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1

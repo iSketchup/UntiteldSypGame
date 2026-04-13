@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Prototyp_MAIN"
-run/main_scene="res://scene/node_2d.tscn"
+run/main_scene="uid://b5ovuxbixiywu"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [physics]

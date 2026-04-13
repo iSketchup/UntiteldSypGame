@@ -1,8 +1,10 @@
 [gd_resource type="Resource" script_class="Card" format=3 uid="uid://ckftt3co2605x"]
 
 [ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="1_7qq7w"]
-
+[ext_resource type="Texture2D" uid="uid://crm8q2e268fck" path="res://Assets/Giving.png" id="1_wc8gs"]
 
 [resource]
 script = ExtResource("1_7qq7w")
+image = ExtResource("1_wc8gs")
+Description = " give 5+ Damage"
 metadata/_custom_type_script = "uid://cb6p1usrrowo8"

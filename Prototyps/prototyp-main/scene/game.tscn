@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b5ovuxbixiywu"]
+
+[ext_resource type="PackedScene" uid="uid://bupadel7ih2ft" path="res://scene/CardDisplay.tscn" id="1_5kiuu"]
+[ext_resource type="Script" uid="uid://caqps5cgj0oln" path="res://scene/gameState.gd" id="1_dbls1"]
+
+[node name="Game" type="Node2D" unique_id=1149026723]
+script = ExtResource("1_dbls1")
+
+[node name="DisplayDaddy" parent="." unique_id=158854072 instance=ExtResource("1_5kiuu")]

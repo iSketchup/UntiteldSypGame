@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://declk2sl7yh70"]
-
-[ext_resource type="Script" uid="uid://jbwqyyx8368j" path="res://GUIcard.gd" id="1_kikvd"]
-[ext_resource type="Resource" uid="uid://dc4bdqcht3lxa" path="res://ligma.tres" id="2_rjlel"]
-
-[node name="Card" type="Node2D" unique_id=1469086123]
-script = ExtResource("1_kikvd")
-res = ExtResource("2_rjlel")
