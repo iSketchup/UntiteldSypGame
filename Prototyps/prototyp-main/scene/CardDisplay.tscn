@@ -1,19 +1,7 @@
 [gd_scene format=3 uid="uid://bupadel7ih2ft"]
 
 [ext_resource type="Script" uid="uid://khq23beeaidx" path="res://script/card_display.gd" id="1_y7ahd"]
-
-[sub_resource type="GDScript" id="GDScript_y7ahd"]
-script/source = "extends HBoxContainer
-
-func _get_drag_data(_pos):
-
-	var preview = duplicate()
-	preview.modulate.a = 0.6
-	set_drag_preview(preview)
-	
-	print('Ive been touched')
-	return self
-"
+[ext_resource type="Script" uid="uid://4v3om324p7wq" path="res://script/con_display.gd" id="2_okvo4"]
 
 [sub_resource type="GDScript" id="GDScript_okvo4"]
 script/source = "extends GridContainer
@@ -40,6 +28,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Con_Display" type="HBoxContainer" parent="Display" unique_id=1386087435]
+z_index = 21
 custom_minimum_size = Vector2(1000, 200)
 layout_mode = 1
 anchors_preset = 12
@@ -51,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 0
 alignment = 1
-script = SubResource("GDScript_y7ahd")
+script = ExtResource("2_okvo4")
 
 [node name="Grid" type="Control" parent="." unique_id=152223572]
 layout_mode = 3
@@ -60,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="GridContainer" type="GridContainer" parent="Grid" unique_id=1275714760]
 custom_minimum_size = Vector2(600, 600)
@@ -75,4 +65,5 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = SubResource("GDScript_okvo4")
