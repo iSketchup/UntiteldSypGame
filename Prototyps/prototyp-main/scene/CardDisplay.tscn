@@ -2,6 +2,31 @@
 
 [ext_resource type="Script" uid="uid://khq23beeaidx" path="res://script/card_display.gd" id="1_y7ahd"]
 
+[sub_resource type="GDScript" id="GDScript_y7ahd"]
+script/source = "extends HBoxContainer
+
+func _get_drag_data(_pos):
+
+	var preview = duplicate()
+	preview.modulate.a = 0.6
+	set_drag_preview(preview)
+	
+	print('Ive been touched')
+	return self
+"
+
+[sub_resource type="GDScript" id="GDScript_okvo4"]
+script/source = "extends GridContainer
+
+
+func _can_drop_data(_pos, data) -> bool:
+	return data is PanelContainer
+
+func _drop_data(at_position, data):
+	data.reparent(self)
+	move_child(data, 0)
+"
+
 [node name="DisplayDaddy" type="CanvasLayer" unique_id=1819109481]
 script = ExtResource("1_y7ahd")
 
@@ -12,9 +37,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Con_Display" type="HBoxContainer" parent="Display" unique_id=1386087435]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(1000, 200)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -23,7 +49,9 @@ anchor_bottom = 1.0
 offset_top = -181.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 0
 alignment = 1
+script = SubResource("GDScript_y7ahd")
 
 [node name="Grid" type="Control" parent="." unique_id=152223572]
 layout_mode = 3
@@ -47,3 +75,4 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_okvo4")
