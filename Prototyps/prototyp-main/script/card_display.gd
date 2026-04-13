@@ -2,7 +2,7 @@ extends CanvasLayer
 var Card_Bones = preload("res://scene/Card_Bones.tscn")
 
 
-@onready var Display = $Control/Con_Display
+@onready var Display = $Display/Con_Display
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,3 +22,9 @@ func add_HandCard(link: String)-> void:
 	Description.text = card_resource.Description
 	
 	Display.add_child(new)
+
+func _get_drag_data(_pos):
+	var preview = duplicate()
+	preview.modulate.a = 0.6
+	set_drag_preview(preview)
+	return self
