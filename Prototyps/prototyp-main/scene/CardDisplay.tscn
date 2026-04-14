@@ -36,35 +36,27 @@ columns = 3
 layout_mode = 2
 
 [node name="Control2" parent="Grid/GridContainer" unique_id=616084650 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Control3" parent="Grid/GridContainer" unique_id=737289533 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Control4" parent="Grid/GridContainer" unique_id=1071720062 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Control5" parent="Grid/GridContainer" unique_id=1172260120 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Control6" parent="Grid/GridContainer" unique_id=620006573 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Control7" parent="Grid/GridContainer" unique_id=107659249 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Control8" parent="Grid/GridContainer" unique_id=892918332 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Control9" parent="Grid/GridContainer" unique_id=2071638028 instance=ExtResource("4_fpoi8")]
-visible = false
 layout_mode = 2
 
 [node name="Display" type="Control" parent="." unique_id=1256237736]

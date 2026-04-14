@@ -8,18 +8,9 @@ func _can_drop_data(_pos, data):
 	return data is Control
 
 func _drop_data(_pos, data):
-	
-	print('hit')
-	
 	if data.get_parent() == self:
 		return
-		
-		
-	data.position = $ColorRect.position
-	
-	$ColorRect.hide()
 	data.reparent(self)
-
 
 func _ready():
 	get_viewport().size_changed.connect(_on_resize)
