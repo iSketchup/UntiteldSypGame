@@ -9,24 +9,20 @@ script = ExtResource("1_y7ahd")
 
 [node name="Grid" type="Control" parent="." unique_id=152223572]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
 [node name="GridContainer" type="GridContainer" parent="Grid" unique_id=1275714760]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.333
-anchor_top = 0.3
-anchor_right = 0.667
-anchor_bottom = 0.6
-offset_left = -20.0
-offset_top = -20.000015
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -35,24 +31,24 @@ script = ExtResource("2_kww4l")
 
 [node name="Display" type="Control" parent="." unique_id=1256237736]
 z_index = 2
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Con_Display" type="HBoxContainer" parent="Display" unique_id=1386087435]
+z_index = 21
+custom_minimum_size = Vector2(1000, 200)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-
-[node name="Con_Display" type="HBoxContainer" parent="Display" unique_id=1386087435]
-z_index = 21
-custom_minimum_size = Vector2(1000, 0)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -181.0
-grow_horizontal = 2
-grow_vertical = 0
 alignment = 1
 script = ExtResource("2_okvo4")
