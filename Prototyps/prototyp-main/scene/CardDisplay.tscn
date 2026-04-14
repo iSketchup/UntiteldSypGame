@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bupadel7ih2ft"]
 
 [ext_resource type="Script" uid="uid://khq23beeaidx" path="res://script/card_display.gd" id="1_y7ahd"]
+[ext_resource type="Script" uid="uid://cp1m01dui04mw" path="res://scene/grid_container.gd" id="2_kww4l"]
 [ext_resource type="Script" uid="uid://4v3om324p7wq" path="res://script/con_display.gd" id="2_okvo4"]
-[ext_resource type="PackedScene" uid="uid://bctohkty838jy" path="res://scene/Drop_Slot.tscn" id="4_fpoi8"]
 
 [node name="DisplayDaddy" type="CanvasLayer" unique_id=1819109481]
 script = ExtResource("1_y7ahd")
@@ -31,33 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 columns = 3
-
-[node name="Control" parent="Grid/GridContainer" unique_id=1613442951 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control2" parent="Grid/GridContainer" unique_id=616084650 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control3" parent="Grid/GridContainer" unique_id=737289533 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control4" parent="Grid/GridContainer" unique_id=1071720062 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control5" parent="Grid/GridContainer" unique_id=1172260120 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control6" parent="Grid/GridContainer" unique_id=620006573 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control7" parent="Grid/GridContainer" unique_id=107659249 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control8" parent="Grid/GridContainer" unique_id=892918332 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
-
-[node name="Control9" parent="Grid/GridContainer" unique_id=2071638028 instance=ExtResource("4_fpoi8")]
-layout_mode = 2
+script = ExtResource("2_kww4l")
 
 [node name="Display" type="Control" parent="." unique_id=1256237736]
 z_index = 2
