@@ -14,6 +14,10 @@ config/name="Prototyp_MAIN"
 run/main_scene="uid://b5ovuxbixiywu"
 config/features=PackedStringArray("4.6", "Mobile")
 
+[display]
+
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/rider-plugin/plugin.cfg", "res://addons/tnowe_extra_controls/plugin.cfg")
