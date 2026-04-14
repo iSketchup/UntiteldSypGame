@@ -14,6 +14,9 @@ func _drop_data(_pos, data):
 	if data.get_parent() == self:
 		return
 		
+		
+	data.position = $ColorRect.position
+	
 	$ColorRect.hide()
 	data.reparent(self)
 
