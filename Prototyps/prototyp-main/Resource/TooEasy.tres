@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://bn2l3xb3fksf1"]
+
+[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="1_2osvx"]
+
+[resource]
+script = ExtResource("1_2osvx")
+Description = "+ 30% Money if no damage this night"
+Action = 3
+metadata/_custom_type_script = "uid://cb6p1usrrowo8"

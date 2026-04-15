@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://c0mg3ft81m4y8"]
+
+[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="1_60nag"]
+
+[resource]
+script = ExtResource("1_60nag")
+Description = "Boost all Damage Card for 60 seconds"
+metadata/_custom_type_script = "uid://cb6p1usrrowo8"

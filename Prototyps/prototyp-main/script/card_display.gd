@@ -12,7 +12,7 @@ func add_HandCard(link: String)-> void:
 	var new = Card_Skin.instantiate()
 	
 	var cover:TextureRect = new.find_child('Cover')
-	cover.texture = card_resource.image
+	cover.texture = card_resource.image	
 	var Description:RichTextLabel =new.find_child('Description')
 	Description.text = card_resource.Description
 	

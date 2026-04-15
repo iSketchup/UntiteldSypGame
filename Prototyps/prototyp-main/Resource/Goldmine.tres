@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://exgh8r8j3l3r"]
+
+[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="1_8yn54"]
+
+[resource]
+script = ExtResource("1_8yn54")
+Description = "+5 Money next day"
+Action = 3
+metadata/_custom_type_script = "uid://cb6p1usrrowo8"
