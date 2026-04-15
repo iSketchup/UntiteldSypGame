@@ -6,12 +6,25 @@ class_name Card
 
 @export var Description :String
 
-func place():
+func placed():
 	pass
 
-func  trigger():
+func trigger():
+	pass
+
+func discarded():
+	pass
+
+func gotplacedon():
 	pass
 	
+func drawn():
+	pass
+
+func bought():
+	pass
+
+### cook
 func mogg():
 	print("mogged")
 

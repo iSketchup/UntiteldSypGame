@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bctohkty838jy"]
+
+[ext_resource type="Script" uid="uid://b03qffnlm0cmk" path="res://script/drop_slot.gd" id="1_aojj4"]
+
+[node name="Container" type="MarginContainer" unique_id=881884029]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 7
+script = ExtResource("1_aojj4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=401425020]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0.14509805, 0.4862745, 1, 1)
