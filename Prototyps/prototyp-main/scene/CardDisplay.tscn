@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bupadel7ih2ft"]
 
 [ext_resource type="Script" uid="uid://khq23beeaidx" path="res://script/card_display.gd" id="1_y7ahd"]
-[ext_resource type="Script" uid="uid://cp1m01dui04mw" path="res://scene/grid_container.gd" id="2_kww4l"]
+[ext_resource type="Script" path="res://scene/grid_container.gd" id="2_kww4l"]
 [ext_resource type="Script" uid="uid://4v3om324p7wq" path="res://script/con_display.gd" id="2_okvo4"]
 
 [node name="DisplayDaddy" type="CanvasLayer" unique_id=1819109481]
