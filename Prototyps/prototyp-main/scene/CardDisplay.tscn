@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bupadel7ih2ft"]
 
 [ext_resource type="Script" uid="uid://khq23beeaidx" path="res://script/Display/card_display.gd" id="1_y7ahd"]
+[ext_resource type="Script" uid="uid://cp1m01dui04mw" path="res://script/Display/grid_container.gd" id="2_kww4l"]
 [ext_resource type="Script" uid="uid://4v3om324p7wq" path="res://script/Display/con_display.gd" id="2_okvo4"]
 
 [node name="DisplayDaddy" type="CanvasLayer" unique_id=1819109481]
 script = ExtResource("1_y7ahd")
 
 [node name="Grid" type="Control" parent="." unique_id=152223572]
+z_index = 10
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,9 +28,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 columns = 3
+script = ExtResource("2_kww4l")
 
 [node name="Display" type="Control" parent="." unique_id=1256237736]
-z_index = 2
+z_index = 20
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
 anchors_preset = 12
@@ -40,7 +43,6 @@ grow_vertical = 0
 mouse_filter = 2
 
 [node name="Con_Display" type="HBoxContainer" parent="Display" unique_id=1386087435]
-z_index = 21
 custom_minimum_size = Vector2(1000, 200)
 layout_mode = 1
 anchors_preset = 15
@@ -50,3 +52,16 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource("2_okvo4")
+
+[node name="NexTurn" type="Button" parent="." unique_id=1603996251]
+offset_left = 5.0
+offset_top = 409.0
+offset_right = 83.0
+offset_bottom = 440.0
+text = "End Turn"
+
+[node name="Label" type="Label" parent="." unique_id=1372221421]
+offset_right = 202.0
+offset_bottom = 75.0
+
+[connection signal="pressed" from="NexTurn" to="." method="_on_nex_turn_pressed"]

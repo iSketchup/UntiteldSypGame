@@ -10,7 +10,7 @@ func placed():
 	pass
 
 func trigger():
-	pass
+	callFunc()
 
 func discarded():
 	pass

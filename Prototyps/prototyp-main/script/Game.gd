@@ -7,4 +7,7 @@ var Cards=["res://Resource/Giver.tres","res://Resource/MonsterEnergie.tres","res
 func _ready() -> void:
 	for link in Cards:
 		Display.add_HandCard(link)
-	
+
+
+func _process(delta: float) -> void:
+	$GameState.pile = $DisplayDaddy/Grid/GridContainer.pile

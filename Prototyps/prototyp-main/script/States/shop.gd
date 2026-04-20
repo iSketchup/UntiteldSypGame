@@ -1,10 +1,13 @@
-extends Node
+extends State
 
-func enter():
-	pass	
+var Statename := 'shop'
+
+
+func enter(curPile):
+	super(curPile)
 	
 func exit():
 	pass
 	
-func update(delta):
-	pass
+func update(delta,curPile):
+	super(delta,curPile)
