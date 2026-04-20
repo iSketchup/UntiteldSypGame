@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://b5ovuxbixiywu"]
 
 [ext_resource type="PackedScene" uid="uid://bupadel7ih2ft" path="res://scene/CardDisplay.tscn" id="1_5kiuu"]
-[ext_resource type="Script" uid="uid://caqps5cgj0oln" path="res://script/Game.gd" id="1_dbls1"]
+[ext_resource type="Script" uid="uid://caqps5cgj0oln" path="res://script/Game.gd" id="1_xlg7c"]
 [ext_resource type="Script" uid="uid://ck8koajtfnple" path="res://script/States/game_state.gd" id="3_33cqm"]
 [ext_resource type="Script" uid="uid://cle71nuk4hsdu" path="res://script/States/night.gd" id="4_xwcet"]
 [ext_resource type="Script" uid="uid://obwoy1pv45sa" path="res://script/States/day.gd" id="5_p1ry8"]
 [ext_resource type="Script" uid="uid://dxb6gws5ic4dm" path="res://script/States/shop.gd" id="6_xlg7c"]
 
 [node name="Game" type="Node2D" unique_id=1149026723]
-script = ExtResource("1_dbls1")
+script = ExtResource("1_xlg7c")
 
 [node name="DisplayDaddy" parent="." unique_id=158854072 instance=ExtResource("1_5kiuu")]
 

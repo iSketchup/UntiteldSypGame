@@ -3,7 +3,7 @@ extends Node
 
 var pile
 
-var states: Array[Variant] = []
+var states: Array[State] = []
 var active_index := 0
 var active_state: 
 	get:
@@ -16,7 +16,7 @@ func next_state():
 	states[active_index].exit()
 	active_index = (active_index + 1) % states.size()
 	states[active_index].enter(pile)
-	$"../DisplayDaddy/Label".text = active_state.StateName
+	$"../DisplayDaddy/Label".text = active_state.Statename
 
 func _process(delta):
 	states[active_index].update(delta, pile)

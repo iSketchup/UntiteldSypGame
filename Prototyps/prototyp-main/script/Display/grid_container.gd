@@ -11,7 +11,7 @@ func _ready() -> void:
 		for x in range(columns):
 			pile[0][y].append(null)
 			
-			var temp: Node = dropable.instantiate()
+			var temp:= dropable.instantiate()
 			add_child(temp)
 			temp.dropped.connect(_on_dropped.bind(y, x))
 			temp.dragged.connect(_on_dragged.bind(y, x))

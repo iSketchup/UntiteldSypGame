@@ -5,6 +5,15 @@ class_name card_skin
 @export var CardScaleYToViewport = 4
 @export var CardScaleXToViewport := 6
 
+var card:Card :
+	get:
+		return card
+	set(value):
+		$Cover.texture = value.image	
+		$Description.text = value.Description
+		card = value
+
+# drag and drop
 func _get_drag_data(_pos):
 
 	var preview = Panel.new()
@@ -24,6 +33,8 @@ func _notification(what):
 	if what == NOTIFICATION_DRAG_END:
 		show()
 
+
+
 func _ready():
 	get_viewport().size_changed.connect(_on_resize)
 	_on_resize()
@@ -31,3 +42,6 @@ func _ready():
 func _on_resize():
 	var window = get_viewport().get_visible_rect().size
 	custom_minimum_size = Vector2(window.x / CardScaleXToViewport, window.y / CardScaleYToViewport)
+
+func trigger():
+	card.trigger()

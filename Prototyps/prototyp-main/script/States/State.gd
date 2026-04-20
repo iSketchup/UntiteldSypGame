@@ -4,8 +4,6 @@ extends Node
 
 var pile
 
-var StateName
-
 func enter(curPile):
 	pile = curPile
 	

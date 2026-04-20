@@ -18,10 +18,7 @@ func _drop_data(_pos, data):
 	dropped.emit(data)
 
 
-func _notification(what):
-	if what == NOTIFICATION_DRAG_BEGIN:
-		dragged.emit()
-
+			
 func _ready():
 	get_viewport().size_changed.connect(_on_resize)
 	_on_resize()
@@ -31,3 +28,7 @@ func _on_resize():
 	custom_minimum_size = Vector2(window.x / CardScaleXToViewport, window.y / CardScaleYToViewport)
 	$ColorRect.custom_minimum_size = Vector2(window.x / CardScaleXToViewport, window.y / CardScaleYToViewport)
 
+
+
+func _on_child_exiting_tree(node: Node) -> void:
+	dragged.emit()

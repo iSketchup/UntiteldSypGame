@@ -6,10 +6,17 @@ class_name Card
 
 @export var Description :String
 
+
+
+
+
+
+## Card Funcs
 func placed():
 	pass
 
 func trigger():
+	print('triggered')
 	callFunc()
 
 func discarded():
@@ -29,13 +36,13 @@ func mogg():
 	print("mogged")
 
 func MakeDamage():
-	print("+5 Damage")
+	print("Damage")
 	
 func MoreCards():
-	pass
+	print('cards++')
 	
 func MoreEnergie():
-	pass
+	print('Energy ++')
 	
 enum actions {
 	MakeDamage,
@@ -47,5 +54,5 @@ enum actions {
 @export var Action: actions
 
 
-func callFunc():
+func callFunc():	
 	call(actions.keys()[Action])
