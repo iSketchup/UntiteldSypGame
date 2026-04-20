@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bctohkty838jy"]
 
-[ext_resource type="Script" uid="uid://b03qffnlm0cmk" path="res://script/drop_slot.gd" id="1_aojj4"]
+[ext_resource type="Script" uid="uid://b03qffnlm0cmk" path="res://script/Display/drop_slot.gd" id="1_aojj4"]
 
 [node name="Container" type="MarginContainer" unique_id=881884029]
-custom_minimum_size = Vector2(100, 100)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
