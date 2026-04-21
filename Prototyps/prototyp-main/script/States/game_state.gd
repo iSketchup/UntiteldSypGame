@@ -3,6 +3,22 @@ extends Node
 
 var pile
 
+var Money
+
+var Handsize
+var HandsizeMod
+var DamageFlat
+var DamageFlatMod
+var DamageMult
+var DamageMultMod
+var Firerate
+var FirerateMod
+var Bulletsize
+var BulletsizeMod
+var Bulletspeed
+var BulletspeedMod
+
+
 var states: Array[State] = []
 var active_index := 0
 var active_state: 
