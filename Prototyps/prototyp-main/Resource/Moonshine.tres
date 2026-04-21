@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Card" format=3 uid="uid://j3ku5a6mbsj4"]
-
-[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="1_punvj"]
-
-[resource]
-script = ExtResource("1_punvj")
-Description = "Enemeys get -10% Health"
-metadata/_custom_type_script = "uid://cb6p1usrrowo8"
