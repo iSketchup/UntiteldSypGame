@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://qifn5o7caq27"]
+
+[ext_resource type="Script" uid="uid://destunr44qs40" path="res://script/Action.gd" id="1_vt0ss"]
+[ext_resource type="Texture2D" uid="uid://b7om846kun1yl" path="res://Assets/moreEnergy.png" id="2_hy863"]
+[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="2_j6de3"]
+
+[sub_resource type="Resource" id="Resource_vt0ss"]
+script = ExtResource("1_vt0ss")
+value = 67
+action = 6
+metadata/_custom_type_script = "uid://destunr44qs40"
+
+[sub_resource type="Resource" id="Resource_j6de3"]
+script = ExtResource("1_vt0ss")
+trigger = 2
+value = -67
+action = 6
+metadata/_custom_type_script = "uid://destunr44qs40"
+
+[resource]
+script = ExtResource("2_j6de3")
+image = ExtResource("2_hy863")
+Actions = Array[ExtResource("1_vt0ss")]([SubResource("Resource_vt0ss"), SubResource("Resource_j6de3")])
+metadata/_custom_type_script = "uid://cb6p1usrrowo8"

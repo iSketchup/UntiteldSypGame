@@ -1,7 +1,36 @@
 ﻿@tool
 extends Resource
 class_name Action
+enum Triggers { onTrigger, onBought, onDrawn, onPlaced, onGotPlacedOn, onDiscarded }
 
+@export var trigger: Triggers = Triggers.onTrigger
+
+## Card Funcs
+func placed():
+	if trigger != Triggers.onPlaced: return
+	callFunc()
+
+func triggered():
+	if trigger != Triggers.onTrigger: return
+	callFunc()
+
+func discarded():
+	if trigger != Triggers.onDiscarded: return
+	callFunc()
+
+func gotplacedon():
+	if trigger != Triggers.onGotPlacedOn: return
+	callFunc()
+
+func drawn():
+	if trigger != Triggers.onDrawn: return
+	callFunc()
+
+func bought():
+	if trigger != Triggers.onBought: return
+	callFunc()
+	
+	
 const ACTION_NAMES = [
 	"DamageFlat",
 	"DamageMult",
@@ -12,7 +41,8 @@ const ACTION_NAMES = [
 	"Money"
 ]
 
-@export var isModifier: bool
+@export_group("Actions")
+@export var isBase: bool = false 
 @export var value: int = 0
 var action: int = 0
 
