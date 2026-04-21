@@ -23,5 +23,3 @@ script = ExtResource("5_p1ry8")
 
 [node name="Shop" type="Node" parent="GameState" unique_id=1867625691]
 script = ExtResource("6_xlg7c")
-
-[connection signal="next" from="DisplayDaddy" to="GameState" method="_on_display_daddy_next"]
