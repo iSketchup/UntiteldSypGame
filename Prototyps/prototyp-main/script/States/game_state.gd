@@ -1,37 +1,48 @@
+# StateMachine.gd
 class_name StateMachine
 extends Node
 
 var pile
+var Money			:= 0
 
-var Money
+var Handsize        := 8
+var HandsizeMod     := 0
 
-var Handsize 		:= 8
-var HandsizeMod 	:= 0
+var DamageFlat      := 3
+var DamageFlatMod   := 0
 
-var DamageFlat		:= 3
-var DamageFlatMod	:= 0
+var DamageMult      := 1
+var DamageMultMod   := 0
 
-var DamageMult		:= 1
-var DamageMultMod	:= 0
+var Firerate        := 4
+var FirerateMod     := 0
 
-var Firerate		:= 4
-var FirerateMod		:= 0
+var Bulletsize      := 3
+var BulletsizeMod   := 0
 
-var Bulletsize		:= 3
-var BulletsizeMod	:= 0
-
-var Bulletspeed		:= 3
-var BulletspeedMod	:= 0
-
+var Bulletspeed     := 3
+var BulletspeedMod  := 0
 
 var states: Array[State] = []
 var active_index := 0
-var active_state: 
+var active_state:
 	get:
 		return states[active_index]
 
 func _ready():
 	states = [$Day, $Night, $Shop]
+	
+	EventHandler.reset_mods.connect(reset_mods)
+
+	EventHandler.on_damage_flat_changed.connect(_on_damage_flat_changed)
+	EventHandler.on_damage_mult_changed.connect(_on_damage_mult_changed)
+	EventHandler.on_firerate_changed.connect(_on_firerate_changed)
+	EventHandler.on_bulletsize_changed.connect(_on_bulletsize_changed)
+	EventHandler.on_money_changed.connect(_on_money_changed)
+	EventHandler.on_next_Stage.connect(next_state)
+	
+	EventHandler.on_draw.connect(_on_draw)
+	EventHandler.on_discard.connect(_on_discard)
 
 func next_state():
 	states[active_index].exit()
@@ -43,5 +54,45 @@ func _process(delta):
 	states[active_index].update(delta, pile)
 
 
-func _on_display_daddy_next() -> void:
-	next_state()
+# --- Signal Handler ---
+
+func _on_damage_flat_changed(value: int, is_base: bool) -> void:
+	if is_base:
+		DamageFlat += value
+	else:
+		DamageFlatMod += value
+
+func _on_damage_mult_changed(value: int, is_base: bool) -> void:
+	if is_base:
+		DamageMult += value
+	else:
+		DamageMultMod += value
+
+
+func _on_firerate_changed(value: int, is_base: bool) -> void:
+	if is_base:
+		Firerate += value
+	else:
+		FirerateMod += value
+
+func _on_bulletsize_changed(value: int, is_base: bool) -> void:
+	if is_base:
+		Bulletsize += value
+	else:
+		BulletsizeMod += value
+
+func _on_money_changed(value: int) -> void:
+	Money += value
+
+
+func reset_mods():
+	DamageFlatMod = 0
+	DamageMultMod = 0
+	BulletsizeMod = 0
+	BulletspeedMod = 0
+
+func _on_discard(value: int) -> void:
+	pass
+
+func _on_draw(value: int) -> void:
+	pass

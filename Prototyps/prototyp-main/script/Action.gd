@@ -71,25 +71,25 @@ func callFunc():
 
 ## Action Funcs
 func DamageFlat():
-	EventHandler.DamageFlat(value, isBase)
+	EventHandler.on_damage_flat_changed.emit(value, isBase)
 
 func DamageMult():
-	on_damage_mult.emit(value, isBase)
+	EventHandler.on_damage_mult_changed.emit(value, isBase)
 
 func Draw():
-	on_draw.emit(value)
+	EventHandler.on_draw_changed.emit(value)
 
 func Firerate():
-	on_firerate.emit(value, isBase)
+	EventHandler.on_firerate_changed.emit(value, isBase)
 
 func Bulletsize():
-	on_bulletsize.emit(value, isBase)
+	EventHandler.on_bulletsize_changed.emit(value, isBase)
 
 func Discard():
-	on_discard.emit(value)
+	EventHandler.on_discard_changed.emit(value)
 
 func Money():
-	on_money.emit(value)
+	EventHandler.on_money_changed.emit(value)
 
 func description() -> String:
 	return str(value) + "x " + ACTION_NAMES[action]

@@ -64,4 +64,29 @@ text = "End Turn"
 offset_right = 202.0
 offset_bottom = 75.0
 
+[node name="Container_Stats" type="VBoxContainer" parent="." unique_id=1161572523]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -52.0
+offset_right = 40.0
+offset_bottom = 52.0
+grow_vertical = 2
+
+[node name="Damage" type="Label" parent="Container_Stats" unique_id=399652803]
+layout_mode = 2
+text = "Damage:"
+
+[node name="Damagemult" type="Label" parent="Container_Stats" unique_id=1308676428]
+layout_mode = 2
+text = "Damagemult:"
+
+[node name="Firerate" type="Label" parent="Container_Stats" unique_id=1338306329]
+layout_mode = 2
+text = "Firerate:"
+
+[node name="Bulletsize" type="Label" parent="Container_Stats" unique_id=249903442]
+layout_mode = 2
+text = "Bulletsize:"
+
 [connection signal="pressed" from="NexTurn" to="." method="_on_nex_turn_pressed"]

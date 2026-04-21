@@ -5,7 +5,6 @@ var Hand =  []
 
 @onready var Display = $Display/Con_Display
 
-signal next
 
 func add_HandCard(link: String)-> void:
 	var card_resource = load(link)
@@ -20,4 +19,4 @@ func add_HandCard(link: String)-> void:
 
 
 func _on_nex_turn_pressed() -> void:
-	next.emit()
+	EventHandler.on_next_Stage.emit()
