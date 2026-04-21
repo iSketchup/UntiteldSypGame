@@ -5,6 +5,7 @@ var Cards=["res://Resource/sigmacart.tres"]
 
 
 func _ready() -> void:
+
 	for link in Cards:
 		Display.add_HandCard(link)
 

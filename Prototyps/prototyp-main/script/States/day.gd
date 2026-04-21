@@ -7,7 +7,6 @@ func enter(curPile):
 	super(curPile)
 	
 func exit():
-	print(pile)
 	for layer_z in range(pile.size()):
 		var layer = pile[layer_z]
 		for card_y in range(layer.size()):

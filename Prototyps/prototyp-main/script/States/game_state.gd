@@ -5,18 +5,23 @@ var pile
 
 var Money
 
-var Handsize
-var HandsizeMod
-var DamageFlat
-var DamageFlatMod
-var DamageMult
-var DamageMultMod
-var Firerate
-var FirerateMod
-var Bulletsize
-var BulletsizeMod
-var Bulletspeed
-var BulletspeedMod
+var Handsize 		:= 8
+var HandsizeMod 	:= 0
+
+var DamageFlat		:= 3
+var DamageFlatMod	:= 0
+
+var DamageMult		:= 1
+var DamageMultMod	:= 0
+
+var Firerate		:= 4
+var FirerateMod		:= 0
+
+var Bulletsize		:= 3
+var BulletsizeMod	:= 0
+
+var Bulletspeed		:= 3
+var BulletspeedMod	:= 0
 
 
 var states: Array[State] = []

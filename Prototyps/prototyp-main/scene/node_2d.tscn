@@ -1,6 +1,18 @@
-[gd_scene format=3 uid="uid://p33m3eg5vehq"]
+[gd_scene format=3 uid="uid://d4n1vt5vp7sx1"]
 
-[ext_resource type="Script" uid="uid://cajq174j0c82x" path="res://script/node_2d.gd" id="1_wtcfe"]
+[sub_resource type="GDScript" id="GDScript_8bala"]
+script/source = "extends Node2D
+
+var card:Card;
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	card = load(\"res://ligma.tres\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	card.callFunc()
+"
 
 [node name="Node2D" type="Node2D" unique_id=1443656582]
-script = ExtResource("1_wtcfe")
+script = SubResource("GDScript_8bala")

@@ -16,6 +16,7 @@ func add_HandCard(link: String)-> void:
 	Display.add_child(new)
 	Hand.append(new)
 	
+	
 
 
 func _on_nex_turn_pressed() -> void:

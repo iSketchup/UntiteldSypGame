@@ -1,11 +1,12 @@
 ﻿@tool
 extends Resource
 class_name Action
+
 enum Triggers { onTrigger, onBought, onDrawn, onPlaced, onGotPlacedOn, onDiscarded }
 
 @export var trigger: Triggers = Triggers.onTrigger
 
-## Card Funcs
+## Trigger Funcs
 func placed():
 	if trigger != Triggers.onPlaced: return
 	callFunc()
@@ -29,8 +30,8 @@ func drawn():
 func bought():
 	if trigger != Triggers.onBought: return
 	callFunc()
-	
-	
+
+
 const ACTION_NAMES = [
 	"DamageFlat",
 	"DamageMult",
@@ -42,7 +43,7 @@ const ACTION_NAMES = [
 ]
 
 @export_group("Actions")
-@export var isBase: bool = false 
+@export var isBase: bool = false
 @export var value: int = 0
 var action: int = 0
 
@@ -68,26 +69,27 @@ func _set(property: StringName, val) -> bool:
 func callFunc():
 	call(ACTION_NAMES[action])
 
+## Action Funcs
 func DamageFlat():
-	print(str(value) + "x Flat Damage")
+	EventHandler.DamageFlat(value, isBase)
 
 func DamageMult():
-	print(str(value) + "x Damage Multiplier")
+	on_damage_mult.emit(value, isBase)
 
 func Draw():
-	print(str(value) + "x Cards drawn")
+	on_draw.emit(value)
 
 func Firerate():
-	print(str(value) + "x Firerate")
+	on_firerate.emit(value, isBase)
 
 func Bulletsize():
-	print(str(value) + "x Bulletsize")
+	on_bulletsize.emit(value, isBase)
 
 func Discard():
-	print(str(value) + "x Discard")
+	on_discard.emit(value)
 
 func Money():
-	print(str(value) + "x Money")
-	
+	on_money.emit(value)
+
 func description() -> String:
-	return str(value) + "times " + ACTION_NAMES[action]
+	return str(value) + "x " + ACTION_NAMES[action]
