@@ -1,6 +1,6 @@
 extends Node2D
 
-var Cards=["res://Resource/Giver.tres","res://Resource/MonsterEnergie.tres","res://resource/ligma.tres","res://resource/XBow.tres"]
+var Cards=["res://Resource/sigma.tres"]
 @onready var Display := $DisplayDaddy
 
 

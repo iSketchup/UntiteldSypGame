@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://bl243egxcnkpv"]
+
+[ext_resource type="Script" uid="uid://destunr44qs40" path="res://script/Action.gd" id="1_02rst"]
+[ext_resource type="Texture2D" uid="uid://sxk1nopa03mq" path="res://Assets/ligma.png" id="2_0470d"]
+[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="2_scv7d"]
+
+[sub_resource type="Resource" id="Resource_6dp76"]
+script = ExtResource("1_02rst")
+value = 8
+action = 0
+metadata/_custom_type_script = "uid://destunr44qs40"
+
+[resource]
+script = ExtResource("2_scv7d")
+image = ExtResource("2_0470d")
+Description = "sigmaligma"
+onTrigger = true
+Actions = Array[ExtResource("1_02rst")]([SubResource("Resource_6dp76")])
+metadata/_custom_type_script = "uid://cb6p1usrrowo8"
