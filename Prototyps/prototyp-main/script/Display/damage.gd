@@ -12,17 +12,13 @@ func _ready() -> void:
 func _on_changed(value, isBase):
 	if !isBase:
 		mods += value
-	
-	var parts = text.split(' ')
-	print(parts[0])
-	var cur := float(parts[1])
-	print(cur)
-	mods +=value
-	text = label+ ' ' + str(cur+value)
+	print(value)
+	var cur := int(text.split(' ')[1])
+	text = label + str(cur+value)
 	
 func _reset_mods():
-	var cur := float(text.split(' ')[1])
-	
-	text = label + ' ' + str(cur-mods)
-	
+	var cur := int(text.split(' ')[1])
+	text = label + str(cur-mods)
+	print(mods)
 	mods = 0
+	
