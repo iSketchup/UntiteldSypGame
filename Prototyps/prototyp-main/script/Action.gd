@@ -38,13 +38,14 @@ const ACTION_NAMES = [
 	"Draw",
 	"Firerate",
 	"Bulletsize",
+	"Bulletspeed",
 	"Discard",
 	"Money"
 ]
 
 @export_group("Actions")
 @export var isBase: bool = false
-@export var value: int = 0
+@export var value: = 0.0
 var action: int = 0
 
 func _get_property_list() -> Array[Dictionary]:
@@ -77,16 +78,19 @@ func DamageMult():
 	EventHandler.on_damage_mult_changed.emit(value, isBase)
 
 func Draw():
-	EventHandler.on_draw_changed.emit(value)
+	EventHandler.on_draw.emit(value)
 
 func Firerate():
 	EventHandler.on_firerate_changed.emit(value, isBase)
 
 func Bulletsize():
 	EventHandler.on_bulletsize_changed.emit(value, isBase)
+	
+func Bulletspeed():
+	EventHandler.on_bulletspeed_changed.emit(value, isBase)
 
 func Discard():
-	EventHandler.on_discard_changed.emit(value)
+	EventHandler.on_discard.emit(value)
 
 func Money():
 	EventHandler.on_money_changed.emit(value)

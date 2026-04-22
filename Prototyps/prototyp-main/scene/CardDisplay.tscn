@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://khq23beeaidx" path="res://script/Display/card_display.gd" id="1_y7ahd"]
 [ext_resource type="Script" uid="uid://cp1m01dui04mw" path="res://script/Display/grid_container.gd" id="2_kww4l"]
 [ext_resource type="Script" uid="uid://4v3om324p7wq" path="res://script/Display/con_display.gd" id="2_okvo4"]
+[ext_resource type="Script" uid="uid://cyi0i5px2nsnt" path="res://script/Display/damage.gd" id="4_fpoi8"]
+[ext_resource type="Script" uid="uid://dhwducrro43so" path="res://script/Display/bulletspeed.gd" id="4_nk5ae"]
+[ext_resource type="Script" uid="uid://budd6vftxkyxd" path="res://script/Display/damagemult.gd" id="5_lcyvh"]
+[ext_resource type="Script" uid="uid://b65v22i7esleq" path="res://script/Display/firerate.gd" id="6_u54r8"]
+[ext_resource type="Script" uid="uid://dc2mtm5660w7l" path="res://script/Display/bulletsize.gd" id="7_v86ka"]
 
 [node name="DisplayDaddy" type="CanvasLayer" unique_id=1819109481]
 script = ExtResource("1_y7ahd")
@@ -75,18 +80,27 @@ grow_vertical = 2
 
 [node name="Damage" type="Label" parent="Container_Stats" unique_id=399652803]
 layout_mode = 2
-text = "Damage:"
+text = "Damage: "
+script = ExtResource("4_fpoi8")
 
 [node name="Damagemult" type="Label" parent="Container_Stats" unique_id=1308676428]
 layout_mode = 2
-text = "Damagemult:"
+text = "Damagemult: "
+script = ExtResource("5_lcyvh")
 
 [node name="Firerate" type="Label" parent="Container_Stats" unique_id=1338306329]
 layout_mode = 2
-text = "Firerate:"
+text = "Firerate: "
+script = ExtResource("6_u54r8")
+
+[node name="Bulletspeed" type="Label" parent="Container_Stats" unique_id=37932729]
+layout_mode = 2
+text = "Bulletspeed: "
+script = ExtResource("4_nk5ae")
 
 [node name="Bulletsize" type="Label" parent="Container_Stats" unique_id=249903442]
 layout_mode = 2
-text = "Bulletsize:"
+text = "Bulletsize: "
+script = ExtResource("7_v86ka")
 
 [connection signal="pressed" from="NexTurn" to="." method="_on_nex_turn_pressed"]
