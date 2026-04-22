@@ -8,6 +8,7 @@ signal on_damage_mult_changed(value: int, is_base: bool)
 signal on_firerate_changed(value: int, is_base: bool)
 signal on_bulletsize_changed(value: int, is_base: bool)
 signal on_bulletspeed_changed(value: int, is_base: bool)
+signal on_energy_changed(value: int, is_base: bool)
 signal on_money_changed(value: int)
 
 signal on_draw(value: int)
