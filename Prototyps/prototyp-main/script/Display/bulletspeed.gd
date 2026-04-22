@@ -19,7 +19,5 @@ func _on_changed(value, isBase):
 	
 func _reset_mods():
 	var cur := int(text.split(' ')[1])
-	
 	text = label + str(cur-mods)
-	
 	mods = 0
