@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://d3vvvuc4gne6a"]
+
+[ext_resource type="Script" uid="uid://destunr44qs40" path="res://script/Action.gd" id="1_iyh1e"]
+[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="2_uyg14"]
+
+[sub_resource type="Resource" id="Resource_iyh1e"]
+script = ExtResource("1_iyh1e")
+action = 4
+metadata/_custom_type_script = "uid://destunr44qs40"
+
+[resource]
+script = ExtResource("2_uyg14")
+Actions = Array[ExtResource("1_iyh1e")]([SubResource("Resource_iyh1e"), null])
+metadata/_custom_type_script = "uid://cb6p1usrrowo8"

@@ -42,6 +42,14 @@ func bought():
 	for action in Actions:
 		action.bought()
 
+func roundend():
+	for action in Actions:
+		action.roundend()
+
+func undergroundtrigger():
+	for action in Actions:
+		action.undergroundtrigger()
+
 
 @export_group("Actions")
 @export var Actions: Array[Action] = []

@@ -1,8 +1,8 @@
-﻿@tool
+@tool
 extends Resource
 class_name Action
 
-enum Triggers { onTrigger, onBought, onDrawn, onPlaced, onGotPlacedOn, onDiscarded }
+enum Triggers { onTrigger, onBought, onDrawn, onPlaced, onGotPlacedOn, onDiscarded, onRoundend, onUndergroundTrigger}
 
 @export var trigger: Triggers = Triggers.onTrigger
 
@@ -31,6 +31,13 @@ func bought():
 	if trigger != Triggers.onBought: return
 	callFunc()
 
+func roundend():
+	if trigger != Triggers.onRoundend: return
+	callFunc()
+	
+func undergroundtrigger():
+	if trigger != Triggers.onUndergroundTrigger: return
+	callFunc()
 
 const ACTION_NAMES = [
 	"DamageFlat",
