@@ -8,7 +8,8 @@ func enter(curPile):
 	super(curPile)
 	
 func exit():
-	for card in get_cards_list():
+	var card_list =get_cards_list()
+	for card in card_list:
 		card.triggered()
 	
 func update(delta,curPile):
