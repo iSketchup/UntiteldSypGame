@@ -5,6 +5,9 @@ extends Node
 var pile
 var Money			:= 0
 
+var Energy			:= 0
+var EnergyMod			:= 0
+
 var Handsize        := 8
 var HandsizeMod     := 0
 
@@ -40,6 +43,9 @@ func _ready():
 	EventHandler.on_bulletsize_changed.connect(_on_bulletsize_changed)
 	EventHandler.on_bulletspeed_changed.connect(_on_bulletspeed_changed)
 	EventHandler.on_money_changed.connect(_on_money_changed)
+	EventHandler.on_energy_changed.connect(_on_energy_changed)
+	
+	
 	EventHandler.on_next_Stage.connect(next_state)
 	
 	EventHandler.on_draw.connect(_on_draw)
@@ -89,6 +95,13 @@ func _on_bulletspeed_changed(value: int, is_base: bool) -> void:
 		Bulletspeed += value
 	else:
 		BulletspeedMod += value
+		
+
+func _on_energy_changed(value: int, is_base: bool) -> void:
+	if is_base:
+		Energy += value
+	else:
+		EnergyMod += value
 
 func _on_money_changed(value: int) -> void:
 	Money += value

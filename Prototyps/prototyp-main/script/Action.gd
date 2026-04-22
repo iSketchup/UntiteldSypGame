@@ -39,6 +39,7 @@ const ACTION_NAMES = [
 	"Firerate",
 	"Bulletsize",
 	"Bulletspeed",
+	"Energy",
 	"Discard",
 	"Money"
 ]
@@ -89,6 +90,9 @@ func Bulletsize():
 func Bulletspeed():
 	EventHandler.on_bulletspeed_changed.emit(value, isBase)
 
+func Energy():
+	EventHandler.on_energy_changed.emit(value, isBase)
+	
 func Discard():
 	EventHandler.on_discard.emit(value)
 
