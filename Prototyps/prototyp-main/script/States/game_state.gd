@@ -6,7 +6,7 @@ var pile
 var Money			:= 0
 
 var Energy			:= 0
-var EnergyMod			:= 0
+var EnergyMod		:= 0
 
 var Handsize        := 8
 var HandsizeMod     := 0
