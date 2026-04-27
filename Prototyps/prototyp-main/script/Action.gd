@@ -53,7 +53,24 @@ const ACTION_NAMES = [
 
 @export_group("Actions")
 @export var isBase: bool = false
-@export var value: = 0.0
+
+@export_enum(
+	"self",
+	'neighbour',
+	'below',
+	'above',
+	'drawpile',
+	'inhand',
+	'onfield') var FOR: String = "self"
+	
+@export var value: = 0.0:
+	get:
+		return value * countFOR()
+
+func countFOR()-> int:
+	## TODO: implement one for each FOR
+	return 1
+
 var action: int = 0
 
 func _get_property_list() -> Array[Dictionary]:
