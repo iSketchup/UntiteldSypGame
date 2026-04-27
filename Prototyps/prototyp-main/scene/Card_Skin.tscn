@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://declk2sl7yh70"]
 
 [ext_resource type="Script" uid="uid://brgbrmjsfr6lg" path="res://script/card_skin.gd" id="1_3vjve"]
-[ext_resource type="Texture2D" uid="uid://8hgi1pu48dbx" path="res://assets/x-bow.png" id="2_7ibr6"]
+[ext_resource type="Texture2D" uid="uid://8hgi1pu48dbx" path="res://Assets/x-bow.png" id="2_7ibr6"]
 
 [node name="Card" type="Control" unique_id=1847949309]
 z_index = 1

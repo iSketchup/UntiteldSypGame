@@ -10,6 +10,12 @@ func enter(curPile):
 @abstract func exit()
 func update(delta, curPile):
 	pile = curPile
+	
+	
+func trigger_action(card_list,func_name: String):
+	for card in card_list:
+		card.call(func_name)
+
 
 func get_cards_list():
 	var cards = []
