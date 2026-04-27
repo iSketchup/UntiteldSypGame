@@ -2,7 +2,7 @@
 extends Resource
 class_name Action
 
-enum Triggers { onTrigger, onBought, onDrawn, onPlaced, onGotPlacedOn, onDiscarded }
+enum Triggers { onTrigger, onBought, onDrawn, onPlaced, onGotPlacedOn, onDiscarded, onRoundend, onUndergroundTrigger}
 
 @export var trigger: Triggers = Triggers.onTrigger
 
@@ -31,6 +31,13 @@ func bought():
 	if trigger != Triggers.onBought: return
 	callFunc()
 
+func roundend():
+	if trigger != Triggers.onRoundend: return
+	callFunc()
+	
+func undergroundtrigger():
+	if trigger != Triggers.onUndergroundTrigger: return
+	callFunc()
 
 const ACTION_NAMES = [
 	"DamageFlat",
@@ -46,7 +53,24 @@ const ACTION_NAMES = [
 
 @export_group("Actions")
 @export var isBase: bool = false
-@export var value: = 0.0
+
+@export_enum(
+	"self",
+	'neighbour',
+	'below',
+	'above',
+	'drawpile',
+	'inhand',
+	'onfield') var FOR: String = "self"
+	
+@export var value: = 0.0:
+	get:
+		return value * countFOR()
+
+func countFOR()-> int:
+	## TODO: implement one for each FOR, look for pile -> make pile in here update from card.Update()
+	return 4
+
 var action: int = 0
 
 func _get_property_list() -> Array[Dictionary]:

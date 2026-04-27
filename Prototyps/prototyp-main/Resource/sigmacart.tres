@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_j6de3"]
 script = ExtResource("1_vt0ss")
-isBase = true
-value = 0.67
+FOR = "above"
+value = 67.0
 action = 0
 metadata/_custom_type_script = "uid://destunr44qs40"
 
