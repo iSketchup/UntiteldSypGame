@@ -68,8 +68,8 @@ const ACTION_NAMES = [
 		return value * countFOR()
 
 func countFOR()-> int:
-	## TODO: implement one for each FOR
-	return 1
+	## TODO: implement one for each FOR, look for pile -> make pile in here update from card.Update()
+	return 4
 
 var action: int = 0
 

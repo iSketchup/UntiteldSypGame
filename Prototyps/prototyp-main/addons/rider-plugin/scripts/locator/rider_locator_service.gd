@@ -9,7 +9,6 @@ func get_installations() -> Array:
 	var result: Array = RiderLocator.new().get_installations() # from the gdextension
 	return result
 
-# todo
 func fix_external_editor_if_supplied_in_commandline(_settings_service: EditorSettingsService, editor_settings: EditorSettings) -> bool:
 	# When Godot is started from Rider (or vice versa), we may receive the Rider path
 	# via command-line so we can keep Godot's external editor setting in sync.
