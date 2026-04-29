@@ -7,9 +7,14 @@ var pile
 func enter(curPile):
 	pile = curPile
 	
+<<<<<<< Updated upstream
 @abstract func exit():
 func update(delta, curPile):
 	pile = curPile
+=======
+@abstract func exit()
+@abstract func update(delta, curPile)
+>>>>>>> Stashed changes
 	
 	
 func trigger_action(card_list,func_name: String):

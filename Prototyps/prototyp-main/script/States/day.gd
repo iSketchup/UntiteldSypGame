@@ -8,9 +8,14 @@ var Deck: ItemList
 var HandCards: ItemList
 
 func enter(curPile):
+<<<<<<< Updated upstream
 	super(curPile)
 	Get_HandCards()
 	super.trigger_action(HandCards,"drawn")
+=======
+	load_Deck()
+	super.trigger_action(card_list,"drawn")
+>>>>>>> Stashed changes
 
 		
 func Get_HandCards():
@@ -27,6 +32,6 @@ func exit():
 		card.triggered()
 
 func update(delta,curPile):
-	super(delta,curPile)
+	pass
 	
 	
