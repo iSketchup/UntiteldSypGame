@@ -12,7 +12,7 @@ extends Node
 	
 	
 func trigger_action(func_name: String):
-	for card in Data.Deck:
+	for card in Data.Handcards:
 		card.call(func_name)
 
 
