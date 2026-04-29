@@ -2,10 +2,9 @@
 class_name State
 extends Node
 
-var pile
 
-func enter(curPile):
-	pile = curPile
+@abstract func enter(curPile)
+	
 	
 
 @abstract func exit()
@@ -17,12 +16,4 @@ func trigger_action(card_list,func_name: String):
 		card.call(func_name)
 
 
-func get_cards_list():
-	var cards = []
-	for layer in pile:
-		for row in layer:
-			for card in row:
-				if card != null:
-					cards.append(card.card)
-					
-	return cards
+
