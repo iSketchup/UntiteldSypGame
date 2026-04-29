@@ -85,6 +85,7 @@ func countNeighbour()-> int:
 		for row in layer:
 			for card in row:
 				if card == current_card: return 1 
+	return 0
 
 
 func getCard()-> Card:

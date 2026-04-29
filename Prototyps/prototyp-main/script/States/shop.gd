@@ -1,5 +1,4 @@
 extends State
-
 var Statename := 'shop'
 
 
