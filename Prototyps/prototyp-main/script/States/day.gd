@@ -2,6 +2,7 @@ class_name dayState
 extends State
 
 var Statename := 'day'
+# Unnötig Gerade in Display
 var card_list =get_cards_list()
 var Deck: ItemList
 var HandCards: ItemList
@@ -9,7 +10,8 @@ var HandCards: ItemList
 func enter(curPile):
 	super(curPile)
 	load_Deck()
-	super.trigger_action(card_list,"drawn")
+	Get_HandCards()
+	super.trigger_action(HandCards,"drawn")
 
 
 func load_Deck():
@@ -18,8 +20,9 @@ func load_Deck():
 		Deck.append(Card)
 		
 func Get_HandCards():
-	for card in Deck:
-		HandCards.append(Deck.pick_random)
+	var Cards_count: int
+	for card in range(Cards_count):
+		HandCards.append(Deck[Deck.pick_random])
 		
 		
 

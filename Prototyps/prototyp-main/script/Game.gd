@@ -1,8 +1,7 @@
 extends Node2D
 
-var Cards=["res://Resource/sigmacart.tres"]
 @onready var Display := $DisplayDaddy
-
+var Day = new($GameState/Day)
 
 func _ready() -> void:
 
