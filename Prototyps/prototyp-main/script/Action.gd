@@ -80,26 +80,34 @@ func countFOR()-> int:
 	
 func countNeighbour()-> int:
 # todo: implement from data
-	var current_card = getCard()
-	for layer in Data.pile:
-		for row in layer:
-			for card in row:
-				if card == current_card: return 1 
+	var carddetails = getCard()
+	var pile = Data.pile
+	var count
+	
 	return 0
 
 
-func getCard()-> (Card, int, int, int):
-	var pile = Data.pile
-	       
+func getCard()-> Dictionary:
+	var pile = Data.pile	       
 	for l in range(pile.size()):
 		for r in range(pile[l].size()):
 			for c in range(pile[l][r].size()):
-				if pile[l][r][c] == current_card:
-					cl = l
-					cr = r
-					cc = c
-	
-	return (null, -1, -1, -1)
+				for card in pile[l][r][c]:
+					for action in card.actions:
+						if action == self:
+							return {
+							"layer": l,
+							"row": r,
+							"column": c,
+							"card": card
+							}
+				
+	return {
+	"card": null,
+	"layer": -1,
+	"row": -1,
+	"column": -1
+	}
 					
 
 var action: int = 0
