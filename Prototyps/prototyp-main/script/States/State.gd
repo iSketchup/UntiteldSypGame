@@ -3,12 +3,10 @@ class_name State
 extends Node
 
 
-@abstract func enter(curPile)
+@abstract func enter()
 	
-	
-
 @abstract func exit()
-@abstract func update(delta, curPile)
+@abstract func update(delta)
 	
 	
 func trigger_action(func_name: String):

@@ -1,9 +1,12 @@
 extends Node
 
+# Raw data
+var Deck_1 = ["res://Resource/sigmacart.tres"]
 
-var Deck =["res://Resource/sigmacart.tres"]
-var Handcards = []
 
+# active game variablen -> change at runtime
+var Deck :Array[Card]= []
+var Handcards :Array[Card]= []
 var pile
 
 #abfeuer

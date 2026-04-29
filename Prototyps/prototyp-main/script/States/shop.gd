@@ -2,11 +2,11 @@ extends State
 var Statename := 'shop'
 
 
-func enter(curPile):
+func enter():
 	pass
 	
 func exit():
 	pass
 	
-func update(delta,curPile):
+func update(delta):
 	pass

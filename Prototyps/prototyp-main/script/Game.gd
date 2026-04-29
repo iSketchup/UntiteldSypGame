@@ -1,7 +1,6 @@
 extends Node2D
 
-@onready var Display := $DisplayDaddy
-var Day = $GameState/Day.new()
+var DeckToLoad = Data.Deck_1
 
 func  _ready() -> void:
 	load_Deck()
@@ -9,7 +8,7 @@ func  _ready() -> void:
 
 func load_Deck():
 	var Deck : ItemList
-	for Link in Data.Deck_1:
+	for Link in DeckToLoad:
 		var Card = load(Link)
 		Deck.append(Card)
 	Data.Deck = Deck

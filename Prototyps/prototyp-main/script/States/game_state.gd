@@ -34,13 +34,13 @@ func _ready():
 func next_state():
 	states[active_index].exit()
 	active_index = (active_index + 1) % states.size()
-	states[active_index].enter(pile)
+	states[active_index].enter()
 	$"../DisplayDaddy/Label".text = active_state.Statename
 
 
 func _process(delta):
-	states[active_index].update(delta, pile)
-
+	# states[active_index].update(delta, pile)
+	pass
 
 # --- Signal Handler ---
 
@@ -102,5 +102,12 @@ func _on_discard(value: int) -> void:
 
 
 func _on_draw(value: int) -> void:
-	for i in range(value):
-		Data.Handcards.append(Data.Deck[pick_random])
+	var Handcards : Array[Card] = Data.Handcards
+	var Deck : Array[Card]= Data.Deck 
+	
+	for card in range(Data.Handsize):
+		var ToDraw = Deck.pick_random()
+		Handcards.append(ToDraw)
+		
+
+	## TODO: move card out of deck

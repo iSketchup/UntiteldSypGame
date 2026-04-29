@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sxk1nopa03mq"
-path="res://.godot/imported/ligma.png-7270c6614c43a9dad12cd5c845816425.ctex"
+path="res://.godot/imported/ligma.png-22fc9eb893db8a9f3390541ea740733a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ligma.png"
-dest_files=["res://.godot/imported/ligma.png-7270c6614c43a9dad12cd5c845816425.ctex"]
+source_file="res://assets/ligma.png"
+dest_files=["res://.godot/imported/ligma.png-22fc9eb893db8a9f3390541ea740733a.ctex"]
 
 [params]
 
