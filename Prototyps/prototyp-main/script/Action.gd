@@ -79,12 +79,18 @@ func countFOR()-> int:
 	
 	
 func countNeighbour()-> int:
-# todo: implement from data
-	var carddetails = getCard()
+	var c = getCard()
 	var pile = Data.pile
 	var count
+	var row = c.row
+	var col = c.column
 	
-	return 0
+	if row > 0 and pile[0][row - 1][col] != null: count += 1
+	if row < pile[0].count() and pile[0][row + 1][col] != null: count += 1
+	if col > 0 and pile[0][row][col + 1] != null: count += 1
+	if col < pile[0][0].count() and pile[0][row][col - 1] != null: count += 1
+	
+	return count
 
 
 func getCard()-> Dictionary:
