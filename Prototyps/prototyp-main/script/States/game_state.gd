@@ -3,8 +3,8 @@ class_name StateMachine
 extends Node
 
 
-var states: Array[State] = []
-var active_index := 0
+var states: Array[Variant] = []
+var active_index := 2
 var active_state:
 	get:
 		return states[active_index]
@@ -29,8 +29,11 @@ func _ready():
 	EventHandler.on_discard.connect(_on_discard)
 
 	EventHandler.initStats()
-
-
+	
+	# clunky:) will have to should properly call stateinitiation
+	EventHandler.on_next_Stage.emit() 
+	
+## ToDO: properly make the ui change us Signal -> EventHandler.onnext_stage
 func next_state():
 	states[active_index].exit()
 	active_index = (active_index + 1) % states.size()

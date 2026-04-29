@@ -6,7 +6,8 @@ var Card_Skin = preload("res://scene/Card_Skin.tscn")
 func _ready() -> void:
 	EventHandler.on_draw.connect(add_HandCard)
 
-func add_HandCard()-> void:
+## ToDo: Fix :) will flood the display also no need for new istantiation all the time
+func add_HandCard(addedCards:int)-> void:
 	for card in Data.Deck:
 		var new = Card_Skin.instantiate()	
 		new.card = card

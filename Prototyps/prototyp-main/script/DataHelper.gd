@@ -1,4 +1,4 @@
-﻿extends Node
+extends Node
 
 ## returns a list with all cards wich are currently in pile -> on field
 func get_cards_list():
