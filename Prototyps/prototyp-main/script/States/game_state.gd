@@ -102,4 +102,5 @@ func _on_discard(value: int) -> void:
 
 
 func _on_draw(value: int) -> void:
-	pass
+	for i in range(value):
+		Data.Handcards.append(Data.Deck[pick_random])

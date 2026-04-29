@@ -6,9 +6,6 @@ var Day = $GameState/Day.new()
 func  _ready() -> void:
 	load_Deck()
 
-func _process(delta: float) -> void:
-	$GameState.pile = Data.pile
-
 
 func load_Deck():
 	var Deck : ItemList
@@ -18,5 +15,3 @@ func load_Deck():
 	Data.Deck = Deck
 	
 		
-func draw():
-	pass

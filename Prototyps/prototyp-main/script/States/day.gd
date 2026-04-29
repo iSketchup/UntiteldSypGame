@@ -7,10 +7,10 @@ func enter(curPile):
 	super.trigger_action("drawn")
 		
 func Get_HandCards():
-	var Handcards : ItemList
-	var Cards_count: int = 5 # Das soll in Data
-	for card in range(Cards_count):
+	var Handcards : Array
+	for card in range(Data.Handsize):
 		HandCards.append(Deck[Deck.pick_random])
+		
 	Data.Handcards = Handcards
 	
 func exit():
