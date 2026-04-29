@@ -7,7 +7,7 @@ func  _ready() -> void:
 	load_Deck()
 
 func _process(delta: float) -> void:
-	$GameState.pile = $DisplayDaddy/Grid/GridContainer.pile
+	$GameState.pile = Data.pile
 
 
 func load_Deck():
