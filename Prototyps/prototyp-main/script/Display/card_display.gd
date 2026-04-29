@@ -6,14 +6,12 @@ var Card_Skin = preload("res://scene/Card_Skin.tscn")
 func _ready() -> void:
 	EventHandler.on_draw.connect(add_HandCard)
 
-func add_HandCard(link: String)-> void:
-
-	var card_resource = load(link)
-	var new = Card_Skin.instantiate()
+func add_HandCard()-> void:
+	for card in Data.Deck:
+		var new = Card_Skin.instantiate()	
+		new.card = card
+		Display.add_child(new)
 	
-	new.card = card_resource
-	
-	Display.add_child(new)
 	
 	
 

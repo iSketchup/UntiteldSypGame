@@ -11,9 +11,12 @@ func _process(delta: float) -> void:
 
 
 func load_Deck():
+	var Deck : ItemList
 	for Link in Data.Deck_1:
 		var Card = load(Link)
 		Deck.append(Card)
+	Data.Deck = Deck
+	
 		
 func draw():
 	pass

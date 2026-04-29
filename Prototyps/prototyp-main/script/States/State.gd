@@ -12,8 +12,8 @@ func enter(curPile):
 @abstract func update(delta, curPile)
 	
 	
-func trigger_action(card_list,func_name: String):
-	for card in card_list:
+func trigger_action(func_name: String):
+	for card in Data.Deck:
 		card.call(func_name)
 
 
