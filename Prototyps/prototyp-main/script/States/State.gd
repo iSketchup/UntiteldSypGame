@@ -7,7 +7,7 @@ var pile
 func enter(curPile):
 	pile = curPile
 	
-@abstract func exit()
+@abstract func exit():
 func update(delta, curPile):
 	pile = curPile
 	

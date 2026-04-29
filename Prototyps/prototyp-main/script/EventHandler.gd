@@ -13,7 +13,7 @@ signal on_money_changed(value: int)
 
 signal on_draw(value: int)
 signal on_discard(value: int)
-signal on_Day_State(Deck: ItemList)
+
 
 signal reset_mods
 

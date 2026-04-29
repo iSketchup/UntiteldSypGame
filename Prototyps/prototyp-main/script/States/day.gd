@@ -9,21 +9,16 @@ var HandCards: ItemList
 
 func enter(curPile):
 	super(curPile)
-	load_Deck()
 	Get_HandCards()
 	super.trigger_action(HandCards,"drawn")
 
-
-func load_Deck():
-	for Link in Data.Deck_1:
-		var Card = load(Link)
-		Deck.append(Card)
 		
 func Get_HandCards():
 	var Cards_count: int
 	for card in range(Cards_count):
 		HandCards.append(Deck[Deck.pick_random])
-		
+	
+	
 		
 
 		
