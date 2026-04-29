@@ -67,9 +67,35 @@ const ACTION_NAMES = [
 	get:
 		return value * countFOR()
 
+var pile: Array[Variant] = [[[]]]
+
 func countFOR()-> int:
 	## TODO: implement one for each FOR, look for pile -> make pile in here update from card.Update()
-	return 4
+	match FOR:
+		"self": return 1 
+		"neighbour": return countNeighbour()
+	
+	return 0
+	
+	
+	
+func countNeighbour()-> int:
+	var current_card = getCard()
+	for layer in pile:
+		for row in layer:
+			for card in row:
+				if card == current_card: return 1 
+
+
+func getCard()-> Card:
+	for layer in pile:
+		for row in layer:
+			for card in row:
+				if card != null:
+					for action in card.Actions:
+						if action == self:
+							return card
+	return null
 
 var action: int = 0
 
