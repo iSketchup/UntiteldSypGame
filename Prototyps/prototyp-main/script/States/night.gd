@@ -7,7 +7,8 @@ func enter():
 	pass
 	
 func exit():
-	pass
+	DataHelper.clean_board() 
+	DataHelper.clear_hand()
 	
 func update(delta):
 	pass

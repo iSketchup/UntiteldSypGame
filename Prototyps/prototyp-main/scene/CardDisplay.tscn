@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://4v3om324p7wq" path="res://script/Display/con_display.gd" id="2_okvo4"]
 [ext_resource type="Script" uid="uid://cyi0i5px2nsnt" path="res://script/Display/damage.gd" id="4_fpoi8"]
 [ext_resource type="Script" uid="uid://dhwducrro43so" path="res://script/Display/bulletspeed.gd" id="4_nk5ae"]
-[ext_resource type="Script" path="res://script/Display/damagemult.gd" id="5_lcyvh"]
-[ext_resource type="Script" path="res://script/Display/firerate.gd" id="6_u54r8"]
+[ext_resource type="Script" uid="uid://budd6vftxkyxd" path="res://script/Display/damagemult.gd" id="5_lcyvh"]
+[ext_resource type="Script" uid="uid://b65v22i7esleq" path="res://script/Display/firerate.gd" id="6_u54r8"]
 [ext_resource type="Script" uid="uid://dc2mtm5660w7l" path="res://script/Display/bulletsize.gd" id="7_v86ka"]
 [ext_resource type="Script" uid="uid://lnebln5b1r1i" path="res://script/Display/energy.gd" id="9_8gqc6"]
 

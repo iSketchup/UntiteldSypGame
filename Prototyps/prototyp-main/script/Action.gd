@@ -69,7 +69,7 @@ const ACTION_NAMES = [
 
 
 func countFOR()-> int:
-	## TODO: implement one for each FOR, look for pile -> make pile in here update from card.Update()
+	## TODO: implement one for each FOR, look for pile use data.pile
 	match FOR:
 		"self": return 1 
 		"neighbour": return countNeighbour()

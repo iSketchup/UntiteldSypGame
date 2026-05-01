@@ -3,15 +3,14 @@ extends State
 var Statename := 'day'
 
 func enter():
+	Data.populate_Drawpile()
 	Get_HandCards()
-	super.trigger_action("drawn")
 		
 func Get_HandCards():
 	EventHandler.on_draw.emit(Data.Handsize)
 	
 func exit():
-	for card in DataHelper.get_cards_list():
-		card.triggered()
+	super.trigger_action("triggered")
 
 func update(delta):
 	pass

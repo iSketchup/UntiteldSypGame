@@ -30,7 +30,7 @@ func _ready():
 
 	EventHandler.initStats()
 	
-	# clunky:) will have to should properly call stateinitiation
+	# clunky:) will have to do, should properly call stateinitiation
 	EventHandler.on_next_Stage.emit() 
 	
 ## ToDO: properly make the ui change us Signal -> EventHandler.onnext_stage
@@ -106,11 +106,13 @@ func _on_discard(value: int) -> void:
 
 func _on_draw(value: int) -> void:
 	var Handcards : Array[Card] = Data.Handcards
-	var Deck : Array[Card]= Data.Deck 
+	var Drawpile : Array[Card]= Data.Drawpile 
 	
-	for card in range(Data.Handsize):
-		var ToDraw = Deck.pick_random()
+	for card in range(value):
+		var ToDraw = Drawpile.pick_random()
 		Handcards.append(ToDraw)
+		ToDraw.drawn()
+		Drawpile.pop_at(Drawpile.find(ToDraw))
 		
-
-	## TODO: move card out of deck
+		
+	EventHandler.on_GUI_update.emit()

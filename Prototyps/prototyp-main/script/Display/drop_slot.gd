@@ -7,6 +7,7 @@ extends Container
 signal dropped
 signal dragged
 
+
 func _can_drop_data(_pos, data):
 	return data is Control
 
@@ -32,3 +33,12 @@ func _on_resize():
 
 func _on_child_exiting_tree(node: Node) -> void:
 	dragged.emit()
+
+
+func get_placed_Cards():
+	var ret = []
+	for child in get_children():
+		if child is card_skin:
+			ret.append(child)
+			
+	return ret

@@ -1,7 +1,4 @@
 extends Node
-
-
-
 ## Signals
 signal on_damage_flat_changed(value: int, is_base: bool)
 signal on_damage_mult_changed(value: int, is_base: bool)
@@ -12,8 +9,12 @@ signal on_energy_changed(value: int, is_base: bool)
 signal on_money_changed(value: int)
 
 signal on_draw(value: int)
+
 signal on_discard(value: int)
 
+
+signal on_GUI_update()
+signal on_Grid_clear()
 
 signal reset_mods
 
