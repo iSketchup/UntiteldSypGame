@@ -9,7 +9,8 @@ signal on_energy_changed(value: int, is_base: bool)
 signal on_money_changed(value: int)
 
 signal on_draw(value: int)
-
+signal on_placed(card: Card)
+signal on_got_placed_on(card: Card)
 signal on_discard(value: int)
 
 

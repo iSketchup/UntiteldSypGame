@@ -7,6 +7,7 @@ var pile : Array= Data.pile
 func _ready() -> void:
 	EventHandler.on_Grid_clear.connect(on_Grid_clear)
 
+
 	for y in range(columns):
 		pile[0].append([])
 		for x in range(columns):
@@ -16,12 +17,20 @@ func _ready() -> void:
 			add_child(temp)
 			temp.dropped.connect(_on_dropped.bind(y, x))
 			temp.dragged.connect(_on_dragged.bind(y, x))
+			
 
 func _on_dropped(data, y, x) -> void:
 	for i in range(pile.size()):
 		if pile[i][y][x] == null:
 			pile[i][y][x] = data
+			EventHandler.on_placed.emit(data.card)
 			return
+		else:
+			var Card_under = pile[i][y][x]
+			EventHandler.on_got_placed_on.emit(Card_under.card)
+			
+			
+			
 	
 	var new_layer = []
 	for row in range(columns):
@@ -30,6 +39,7 @@ func _on_dropped(data, y, x) -> void:
 			new_layer[row].append(null)
 	pile.append(new_layer)
 	pile[-1][y][x] = data
+	EventHandler.on_placed.emit(data.card)
 	
 func _on_dragged(y, x) -> void:
 	for i in range(pile.size()): 

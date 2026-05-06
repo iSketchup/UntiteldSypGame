@@ -22,10 +22,14 @@ func _ready():
 	EventHandler.on_bulletspeed_changed.connect(_on_bulletspeed_changed)
 	EventHandler.on_money_changed.connect(_on_money_changed)
 	EventHandler.on_energy_changed.connect(_on_energy_changed)
+	
 
 	EventHandler.on_next_Stage.connect(next_state)
-
+	# States
 	EventHandler.on_draw.connect(_on_draw)
+	EventHandler.on_placed.connect(_on_placed)
+	EventHandler.on_discard.connect(_on_discard)
+	EventHandler.on_got_placed_on.connect(_got_placed_on)
 	EventHandler.on_discard.connect(_on_discard)
 
 	EventHandler.initStats()
@@ -101,7 +105,13 @@ func reset_mods():
 
 
 func _on_discard(value: int) -> void:
-	pass
+	var Handcards : Array[Card] = Data.Handcards
+	
+	for card in range(value):
+		var ToDiscard = Handcards.pick_random()
+		Handcards.pop_at(Handcards.find(ToDiscard))
+		
+	EventHandler.on_GUI_update.emit()
 
 
 func _on_draw(value: int) -> void:
@@ -116,3 +126,13 @@ func _on_draw(value: int) -> void:
 		
 		
 	EventHandler.on_GUI_update.emit()
+	
+func _on_placed(card: Card):
+	card.placed()
+	
+func _got_placed_on(card: Card):
+	card.gotplacedon()
+
+	
+
+	
