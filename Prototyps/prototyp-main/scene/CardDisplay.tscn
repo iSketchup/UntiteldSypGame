@@ -61,9 +61,9 @@ script = ExtResource("2_okvo4")
 
 [node name="NexTurn" type="Button" parent="." unique_id=1603996251]
 offset_left = 5.0
-offset_top = 409.0
+offset_top = 413.0
 offset_right = 83.0
-offset_bottom = 440.0
+offset_bottom = 444.0
 text = "End Turn"
 
 [node name="Label" type="Label" parent="." unique_id=1372221421]

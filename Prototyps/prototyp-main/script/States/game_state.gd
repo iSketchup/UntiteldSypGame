@@ -109,6 +109,7 @@ func _on_discard(value: int) -> void:
 	
 	for card in range(value):
 		var ToDiscard = Handcards.pick_random()
+		ToDiscard.discarded()
 		Handcards.pop_at(Handcards.find(ToDiscard))
 		
 	EventHandler.on_GUI_update.emit()
@@ -128,6 +129,7 @@ func _on_draw(value: int) -> void:
 	EventHandler.on_GUI_update.emit()
 	
 func _on_placed(card: Card):
+
 	card.placed()
 	
 func _got_placed_on(card: Card):
