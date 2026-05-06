@@ -69,10 +69,14 @@ const ACTION_NAMES = [
 
 
 func countFOR()-> int:
-	## TODO: implement one for each FOR, look for pile use data.pile
 	match FOR:
 		"self": return 1 
 		"neighbour": return countNeighbour()
+		"below": return countBelow()
+		"above": return countAbove()
+		"drawpile": return countDrawpile()
+		"inhand": return countInhand()
+		"onfield": return countOnfield()
 	
 	return 0
 	
@@ -89,9 +93,48 @@ func countNeighbour()-> int:
 	if row < pile[0].count() and pile[0][row + 1][col] != null: count += 1
 	if col > 0 and pile[0][row][col + 1] != null: count += 1
 	if col < pile[0][0].count() and pile[0][row][col - 1] != null: count += 1
+	print(count)
+	return count
+
+func countAbove()-> int:
+	var c = getCard()
+	var pile = Data.pile
+	var count
+	
+	for i in range(c.layer, pile.size()):
+		if pile[i][c.row][c.column] != null: count += 1
 	
 	return count
 
+func countBelow()-> int:
+	var c = getCard()
+	var pile = Data.pile
+	var count
+	
+	for i in range(0, c.layer):
+		if pile[i][c.row][c.column] != null: count += 1
+	
+	return count
+	
+	
+func countDrawpile()-> int:
+	return Data.Drawpile.size()
+	
+func countInhand()-> int:
+	return Data.Handcards.size()
+	
+func countOnfield()-> int:
+	var pile = Data.pile
+	var count
+	
+	for layer in pile:
+		for row in layer:
+			for card in row:
+				if card != null: count += 1
+	
+	return count
+	
+	
 
 func getCard()-> Dictionary:
 	var pile = Data.pile	       
