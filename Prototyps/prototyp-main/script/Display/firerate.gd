@@ -23,3 +23,4 @@ func _reset_mods():
 	text = label + str(cur-mods)
 	
 	mods = 0
+	

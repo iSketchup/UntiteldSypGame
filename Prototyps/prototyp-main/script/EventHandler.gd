@@ -12,7 +12,7 @@ signal on_draw(value: int)
 signal on_placed(card: Card)
 signal on_got_placed_on(card: Card)
 signal on_discard(value: int)
-
+signal on_bought(card:Card)
 
 signal on_GUI_update()
 signal on_Grid_clear()

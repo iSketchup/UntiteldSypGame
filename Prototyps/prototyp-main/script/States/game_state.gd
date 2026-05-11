@@ -30,7 +30,7 @@ func _ready():
 	EventHandler.on_placed.connect(_on_placed)
 	EventHandler.on_discard.connect(_on_discard)
 	EventHandler.on_got_placed_on.connect(_got_placed_on)
-	EventHandler.on_discard.connect(_on_discard)
+	EventHandler.on_bought.connect(_on_bought)
 
 	EventHandler.initStats()
 	
@@ -108,6 +108,7 @@ func _on_discard(value: int) -> void:
 	var Handcards : Array[Card] = Data.Handcards
 	
 	for card in range(value):
+	# TODO: User sollte aussuchen welche karte gediscarded wird
 		var ToDiscard = Handcards.pick_random()
 		ToDiscard.discarded()
 		Handcards.pop_at(Handcards.find(ToDiscard))
@@ -124,8 +125,7 @@ func _on_draw(value: int) -> void:
 		Handcards.append(ToDraw)
 		ToDraw.drawn()
 		Drawpile.pop_at(Drawpile.find(ToDraw))
-		
-		
+			
 	EventHandler.on_GUI_update.emit()
 	
 func _on_placed(card: Card):
@@ -134,7 +134,11 @@ func _on_placed(card: Card):
 	
 func _got_placed_on(card: Card):
 	card.gotplacedon()
-
+	
+func _on_bought(card: Card):
+	Data.Deck.append(card)
 	
 
-	
+
+
+
