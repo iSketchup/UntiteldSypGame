@@ -39,17 +39,7 @@ func undergroundtrigger():
 	if trigger != Triggers.onUndergroundTrigger: return
 	callFunc()
 
-const ACTION_NAMES = [
-	"DamageFlat",
-	"DamageMult",
-	"Draw",
-	"Firerate",
-	"Bulletsize",
-	"Bulletspeed",
-	"Energy",
-	"Discard",
-	"Money"
-]
+
 
 @export_group("Actions")
 @export var isBase: bool = false
@@ -63,7 +53,20 @@ const ACTION_NAMES = [
 	'inhand',
 	'onfield') var FOR: String = "self"
 	
-@export var value: = 0.0:
+@export_enum(
+	"none",
+	'neighbour',
+	'top',
+	'down',
+	'left',
+	'right',
+	'below',
+	'above',
+	'corners') var AFFECTS: String = "none"
+	
+@export var value: = 1.0
+
+var internal_value: = 1.0:
 	get:
 		return value * countFOR()
 
@@ -89,11 +92,18 @@ func countNeighbour()-> int:
 	var row = c.row
 	var col = c.column
 	
-	if row > 0 and pile[0][row - 1][col] != null: count += 1
-	if row < pile[0].count() and pile[0][row + 1][col] != null: count += 1
-	if col > 0 and pile[0][row][col + 1] != null: count += 1
-	if col < pile[0][0].count() and pile[0][row][col - 1] != null: count += 1
-	print(count)
+	if row > 0 and pile[0][row - 1][col] != null: 
+		count += 1
+	
+	if row < pile[0].count() and pile[0][row + 1][col] != null: 
+		count += 1
+	
+	if col > 0 and pile[0][row][col + 1] != null: 
+		count += 1
+	
+	if col < pile[0][0].count() and pile[0][row][col - 1] != null: 
+		count += 1
+	
 	return count
 
 func countAbove()-> int:
@@ -158,6 +168,17 @@ func getCard()-> Dictionary:
 	"column": -1
 	}
 					
+const ACTION_NAMES = [
+	"DamageFlat",
+	"DamageMult",
+	"Draw",
+	"Firerate",
+	"Bulletsize",
+	"Bulletspeed",
+	"Energy",
+	"Discard",
+	"Money"
+]
 
 var action: int = 0
 
@@ -180,36 +201,37 @@ func _set(property: StringName, val) -> bool:
 		return true
 	return false
 
-func callFunc():
+func callFunc()
+	# TODO: 
 	call(ACTION_NAMES[action])
 
 ## Action Funcs
 func DamageFlat():
-	EventHandler.on_damage_flat_changed.emit(value, isBase)
+	EventHandler.on_damage_flat_changed.emit(internal_value, isBase)
 
 func DamageMult():
-	EventHandler.on_damage_mult_changed.emit(value, isBase)
+	EventHandler.on_damage_mult_changed.emit(internal_value, isBase)
 
 func Draw():
-	EventHandler.on_draw.emit(value)
+	EventHandler.on_draw.emit(internal_value)
 
 func Firerate():
-	EventHandler.on_firerate_changed.emit(value, isBase)
+	EventHandler.on_firerate_changed.emit(internal_value, isBase)
 
 func Bulletsize():
-	EventHandler.on_bulletsize_changed.emit(value, isBase)
+	EventHandler.on_bulletsize_changed.emit(internal_value, isBase)
 	
 func Bulletspeed():
-	EventHandler.on_bulletspeed_changed.emit(value, isBase)
+	EventHandler.on_bulletspeed_changed.emit(internal_value, isBase)
 
 func Energy():
-	EventHandler.on_energy_changed.emit(value, isBase)
+	EventHandler.on_energy_changed.emit(internal_value, isBase)
 	
 func Discard():
-	EventHandler.on_discard.emit(value)
+	EventHandler.on_discard.emit(internal_value)
 
 func Money():
-	EventHandler.on_money_changed.emit(value)
+	EventHandler.on_money_changed.emit(internal_value)
 
 func description() -> String:
-	return str(value) + "x " + ACTION_NAMES[action]
+	return str(internal_value) + "x " + ACTION_NAMES[action]

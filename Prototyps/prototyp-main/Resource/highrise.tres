@@ -5,10 +5,12 @@
 
 [sub_resource type="Resource" id="Resource_iyh1e"]
 script = ExtResource("1_iyh1e")
-action = 4
+FOR = "drawpile"
+value = 5.0
+action = 0
 metadata/_custom_type_script = "uid://destunr44qs40"
 
 [resource]
 script = ExtResource("2_uyg14")
-Actions = Array[ExtResource("1_iyh1e")]([SubResource("Resource_iyh1e"), null])
+Actions = Array[ExtResource("1_iyh1e")]([SubResource("Resource_iyh1e")])
 metadata/_custom_type_script = "uid://cb6p1usrrowo8"
