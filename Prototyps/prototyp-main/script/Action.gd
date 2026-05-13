@@ -91,6 +91,7 @@ func affectFOR()-> void:
 		"down": affectDown()
 		"left": affectLeft()
 		"right": affectRight()
+		"corners": affectCorners()
 	
 	return 
 	
@@ -197,42 +198,47 @@ func affectNeighbour()-> void:
 
 func affectTop()-> void:
 	var c = getCard()
-	var layer = 0
 	var card
 	
 	if c.row == 0: return
-	while true:
-		card = pile[layer][c.row - 1][c.column]
-		if card == null:
-			card = pile[layer - 1][c.row - 1][c.column]
-			break
-		layer += 1
+	card = getTopCard(c.column, c.row - 1)
 		
 	card.call("trigger")
 
 func affectDown()-> void:
 	var c = getCard()
+	var card
 	
 	if c.row == pile[c.layer].size(): return
-	var card = pile[c.layer][c.row + 1][c.column]
+	card = getTopCard(c.column, c.row + 1)
 	card.call("trigger")
 
 func affectLeft()-> void:
 	var c = getCard()
+	var card
 
 	if c.column == 0: return
-	var card = pile[c.layer][c.row][c.column - 1]
+	card = getTopCard(c.column - 1, c.row)
 	card.call("trigger")
 
 func affectRight()-> void:
 	var c = getCard()
+	var card
 	
 	if c.column == pile[c.layer][c.row].size(): return
-	var card = pile[c.layer][c.row][c.column + 1]
+	card = getTopCard(c.column + 1, c.row)
 	card.call("trigger")
 	
 func affectCorners() -> void:
-	pass
+	var cards = []
+	cards.append(getTopCard(0, 0))
+	cards.append(getTopCard(pile[0].size() - 1, 0))
+	cards.append(getTopCard(0, pile[0][0].size() - 1))
+	cards.append(getTopCard(pile[0].size() - 1, pile[0][0].size() - 1))
+	
+	for card in cards:
+		if card:
+			card.call("trigger")
 					
 const ACTION_NAMES = [
 	"DamageFlat",
