@@ -37,25 +37,25 @@ func _ready() -> void:
 var Money			:= 0
 
 var Energy			:= 0
-var EnergyMod		:= 0
+var EnergyMod		:= 1
 
 var Handsize        := 7
-var HandsizeMod     := 0
+var HandsizeMod     := 1
 
 var DamageFlat      := 0
-var DamageFlatMod   := 0
+var DamageFlatMod   := 1
 
 var DamageMult      := 0
-var DamageMultMod   := 0
+var DamageMultMod   := 1
 
 var Firerate        := 0
-var FirerateMod     := 0
+var FirerateMod     := 1
 
 var Bulletsize      := 0
-var BulletsizeMod   := 0
+var BulletsizeMod   := 1
 
 var Bulletspeed     := 0
-var BulletspeedMod  := 0
+var BulletspeedMod  := 1
 var Roundcount := 1
 
 

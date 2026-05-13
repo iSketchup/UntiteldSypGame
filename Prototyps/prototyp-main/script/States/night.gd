@@ -8,7 +8,8 @@ var Enemy := 0.0
 
 func enter():
 	Enemy = make_Enemy()
-	TimerAttack.wait_time = Data.Firerate * Data.FirerateMod
+	# TODO: Das soll mal besser sein als einfach 50 - ...
+	TimerAttack.wait_time = 50 - Data.Firerate * Data.FirerateMod
 	TimerAttack.start()
 	
 	
