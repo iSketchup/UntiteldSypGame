@@ -60,8 +60,6 @@ func undergroundtrigger():
 	'down',
 	'left',
 	'right',
-	'below',
-	'above',
 	'corners') var AFFECTS: String = "none"
 	
 @export var value: = 1.0
@@ -69,6 +67,8 @@ func undergroundtrigger():
 var internal_value: = 1.0:
 	get:
 		return value * countFOR()
+		
+var pile = Data.pile
 
 
 func countFOR()-> int:
@@ -83,11 +83,21 @@ func countFOR()-> int:
 	
 	return 0
 	
+func affectFOR()-> void:
+	match FOR:
+		"none": return
+		"neighbour": affectNeighbour()
+		"top": affectTop()
+		"down": affectDown()
+		"left": affectLeft()
+		"right": affectRight()
+	
+	return 
+	
 	
 	
 func countNeighbour()-> int:
 	var c = getCard()
-	var pile = Data.pile
 	var count
 	var row = c.row
 	var col = c.column
@@ -103,12 +113,11 @@ func countNeighbour()-> int:
 	
 	if col < pile[0][0].count() and pile[0][row][col - 1] != null: 
 		count += 1
-	
+	print(count)
 	return count
 
 func countAbove()-> int:
 	var c = getCard()
-	var pile = Data.pile
 	var count
 	
 	for i in range(c.layer, pile.size()):
@@ -118,7 +127,6 @@ func countAbove()-> int:
 
 func countBelow()-> int:
 	var c = getCard()
-	var pile = Data.pile
 	var count
 	
 	for i in range(0, c.layer):
@@ -134,7 +142,6 @@ func countInhand()-> int:
 	return Data.Handcards.size()
 	
 func countOnfield()-> int:
-	var pile = Data.pile
 	var count
 	
 	for layer in pile:
@@ -147,7 +154,6 @@ func countOnfield()-> int:
 	
 
 func getCard()-> Dictionary:
-	var pile = Data.pile	       
 	for l in range(pile.size()):
 		for r in range(pile[l].size()):
 			for c in range(pile[l][r].size()):
@@ -167,6 +173,66 @@ func getCard()-> Dictionary:
 	"row": -1,
 	"column": -1
 	}
+	
+	
+func getTopCard(column: int, row: int)-> Card:
+	var layer = 0
+	var card
+	while true:
+		card = pile[layer][row][column]
+		if card == null:
+			card = pile[layer - 1][row][column]
+			break
+		layer += 1
+	return card
+	
+	
+func affectNeighbour()-> void:
+	affectTop()
+	affectDown()
+	affectLeft()
+	affectRight()
+	
+	
+
+func affectTop()-> void:
+	var c = getCard()
+	var layer = 0
+	var card
+	
+	if c.row == 0: return
+	while true:
+		card = pile[layer][c.row - 1][c.column]
+		if card == null:
+			card = pile[layer - 1][c.row - 1][c.column]
+			break
+		layer += 1
+		
+	card.call("trigger")
+
+func affectDown()-> void:
+	var c = getCard()
+	
+	if c.row == pile[c.layer].size(): return
+	var card = pile[c.layer][c.row + 1][c.column]
+	card.call("trigger")
+
+func affectLeft()-> void:
+	var c = getCard()
+
+	if c.column == 0: return
+	var card = pile[c.layer][c.row][c.column - 1]
+	card.call("trigger")
+
+func affectRight()-> void:
+	var c = getCard()
+	
+	if c.column == pile[c.layer][c.row].size(): return
+	var card = pile[c.layer][c.row][c.column + 1]
+	card.call("trigger")
+	
+func affectCorners() -> void:
+	pass
 					
 const ACTION_NAMES = [
 	"DamageFlat",
@@ -201,9 +267,10 @@ func _set(property: StringName, val) -> bool:
 		return true
 	return false
 
-func callFunc()
-	# TODO: 
-	call(ACTION_NAMES[action])
+func callFunc():
+	# TODO: jaskja
+	#call(ACTION_NAMES[action])
+	pass
 
 ## Action Funcs
 func DamageFlat():
@@ -234,4 +301,5 @@ func Money():
 	EventHandler.on_money_changed.emit(internal_value)
 
 func description() -> String:
-	return str(internal_value) + "x " + ACTION_NAMES[action]
+	## ToDo: make this look if its being held in hand if not make it display the value use internal value
+	return str(value) + 'per '+ FOR + " x " + ACTION_NAMES[action]

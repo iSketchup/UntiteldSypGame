@@ -1,7 +1,7 @@
 extends Node
 
 # Raw data
-var Deck_1 = ["res://Resource/goatcard.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres",
+var Deck_1 = ["res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres",
 			"res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres",
 			"res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres", 
 			"res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres"]
