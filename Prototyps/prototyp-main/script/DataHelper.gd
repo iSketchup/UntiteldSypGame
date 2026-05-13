@@ -22,3 +22,6 @@ func clean_board():
 func clear_hand():
 	Data.Handcards.clear()
 	EventHandler.on_GUI_update.emit()
+	
+func Next_Round():
+	Data.Roundcount += 1
