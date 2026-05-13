@@ -23,3 +23,8 @@ script = ExtResource("5_p1ry8")
 
 [node name="Shop" type="Node" parent="GameState" unique_id=1867625691]
 script = ExtResource("6_xlg7c")
+
+[node name="TimerAttack" type="Timer" parent="." unique_id=2141865227]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="TimerAttack" to="GameState/Night" method="_on_timer_attack_timeout"]

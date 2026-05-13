@@ -26,6 +26,7 @@ func populate_Drawpile():
 	Drawpile.clear()
 	for card in Deck:
 		Drawpile.append(card)
+
 		
 
 func _ready() -> void:
@@ -55,6 +56,6 @@ var BulletsizeMod   := 0
 
 var Bulletspeed     := 0
 var BulletspeedMod  := 0
-
+var Roundcount := 0
 
 
