@@ -66,9 +66,16 @@ offset_right = 83.0
 offset_bottom = 444.0
 text = "End Turn"
 
-[node name="Label" type="Label" parent="." unique_id=1372221421]
+[node name="LabelState" type="Label" parent="." unique_id=1372221421]
 offset_right = 202.0
 offset_bottom = 75.0
+
+[node name="LabelEnemy" type="Label" parent="." unique_id=1895763678]
+offset_left = 2.0
+offset_top = 88.0
+offset_right = 204.0
+offset_bottom = 163.0
+text = "daff"
 
 [node name="Container_Stats" type="VBoxContainer" parent="." unique_id=1161572523]
 anchors_preset = 4

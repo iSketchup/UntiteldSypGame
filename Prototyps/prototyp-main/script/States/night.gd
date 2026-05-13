@@ -2,13 +2,15 @@ extends State
 
 var Statename := 'night'
 @onready var TimerAttack = %TimerAttack
-var Enemy 
+var Enemy := 0.0
+
 
 
 func enter():
 	Enemy = make_Enemy()
-	TimerAttack.start()
 	TimerAttack.wait_time = Data.Firerate * Data.FirerateMod
+	TimerAttack.start()
+	
 	
 	
 
@@ -18,7 +20,8 @@ func make_Enemy():
 func exit():
 	DataHelper.clean_board() 
 	DataHelper.clear_hand()
-	DataHelper.NextRound()
+	DataHelper.Next_Round()
+	TimerAttack.stop()
 	
 func update(delta):
 	pass
@@ -26,8 +29,11 @@ func update(delta):
 
 func Attack():
 	var damage = Data.DamageFlat * Data.DamageMult
-	return
+	return damage
 
 
 func _on_timer_attack_timeout() -> void:
 	Enemy -= Attack()
+	$"../../DisplayDaddy/LabelEnemy".text = "Enemy Health: " + str(Enemy)
+	# TODO: UPDATE HEALTHBAR in GUI UPDATE
+	print(Enemy)

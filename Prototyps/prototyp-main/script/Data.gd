@@ -56,6 +56,6 @@ var BulletsizeMod   := 0
 
 var Bulletspeed     := 0
 var BulletspeedMod  := 0
-var Roundcount := 0
+var Roundcount := 1
 
 

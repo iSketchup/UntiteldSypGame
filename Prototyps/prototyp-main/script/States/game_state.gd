@@ -42,7 +42,7 @@ func next_state():
 	states[active_index].exit()
 	active_index = (active_index + 1) % states.size()
 	states[active_index].enter()
-	$"../DisplayDaddy/Label".text = active_state.Statename
+	$"../DisplayDaddy/LabelState".text = active_state.Statename ## ToDo: remove ts
 
 
 func _process(delta):
@@ -138,7 +138,3 @@ func _got_placed_on(card: Card):
 func _on_bought(card: Card):
 	Data.Deck.append(card)
 	
-
-
-
-
