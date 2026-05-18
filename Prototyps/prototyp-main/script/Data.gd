@@ -58,4 +58,7 @@ var Bulletspeed     := 0
 var BulletspeedMod  := 1
 var Roundcount := 1
 
+var Health = 100;
+var Healthmod = 1;
+
 

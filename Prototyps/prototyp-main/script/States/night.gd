@@ -8,14 +8,15 @@ var Enemy := 0.0
 
 func enter():
 	Enemy = make_Enemy()
-	# TODO: Das soll mal besser sein als einfach 50 - ...
-	TimerAttack.wait_time = 50 - Data.Firerate * Data.FirerateMod
+	# TODO: Soll Gut gebalanced sein
+	TimerAttack.wait_time =10/( Data.Firerate * Data.FirerateMod)
 	TimerAttack.start()
 	
 	
 	
 
 func make_Enemy():
+	# TODO: Enemy Klasse machen 
 	return Data.Roundcount * 10
 	
 func exit():
