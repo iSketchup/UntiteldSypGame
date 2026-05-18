@@ -274,8 +274,8 @@ func _set(property: StringName, val) -> bool:
 	return false
 
 func callFunc():
-	# TODO: jaskja
-	#call(ACTION_NAMES[action])
+	# TODO: jaskja 	
+	call(ACTION_NAMES[action])
 	pass
 
 ## Action Funcs
