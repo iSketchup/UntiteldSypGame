@@ -64,6 +64,8 @@ func undergroundtrigger():
 	
 @export var value: = 1.0
 
+var card: Card
+
 var internal_value: = 1.0:
 	get:
 		return value * countFOR()
@@ -98,7 +100,7 @@ func affectFOR()-> void:
 	
 	
 func countNeighbour()-> int:
-	var c = getCard()
+	var c = getCardPosition()
 	var count = 0
 	var row = c.row
 	var col = c.column
@@ -106,19 +108,19 @@ func countNeighbour()-> int:
 	if row > 0 and pile[0][row - 1][col] != null: # Card Top
 		count += 1
 	
-	if row < pile[0].size() and pile[0][row + 1][col] != null: # Card Down
+	if row < pile[0].size() - 1 and pile[0][row + 1][col] != null: # Card Down
 		count += 1
 	
 	if col > 0 and pile[0][row][col - 1] != null: # Card Left
 		count += 1
 	
-	if col < pile[0][0].size() and pile[0][row][col + 1] != null: # Card right
+	if col < pile[0][0].size() - 1 and pile[0][row][col + 1] != null: # Card right
 		count += 1
 	print(count)
 	return count
 
 func countAbove()-> int:
-	var c = getCard()
+	var c = getCardPosition()
 	var count
 	
 	for i in range(c.layer, pile.size()):
@@ -127,7 +129,7 @@ func countAbove()-> int:
 	return count
 
 func countBelow()-> int:
-	var c = getCard()
+	var c = getCardPosition()
 	var count
 	
 	for i in range(0, c.layer):
@@ -154,25 +156,19 @@ func countOnfield()-> int:
 	
 	
 
-func getCard()-> Dictionary:
-	for l in range(pile.size()):
-		for r in range(pile[l].size()):
-			for c in range(pile[l][r].size()):
-				if pile[l][r][c]:
-					var card = pile[l][r][c].card
-					print("Checking card: ", card, " Actions: ", card.Actions)
-					for action in card.Actions:
-						print("  action: ", action, " | self: ", self, " | match: ", action == self)
-						if action == self:
-							return {
-							"layer": l,
-							"row": r,
-							"column": c,
-							"card": card
-							}
-				
+func getCardPosition()-> Dictionary:
+	if card:
+		for l in range(pile.size()):
+			for r in range(pile[l].size()):
+				for c in range(pile[l][r].size()):
+					if pile[l][r][c] and pile[l][r][c].card.get_instance_id() == card.get_instance_id():
+						return {
+						"layer": l,
+						"row": r,
+						"column": c,
+						}
+	
 	return {
-	"card": null,
 	"layer": -1,
 	"row": -1,
 	"column": -1
@@ -200,7 +196,7 @@ func affectNeighbour()-> void:
 	
 
 func affectTop()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 	
 	if c.row == 0: return
@@ -209,7 +205,7 @@ func affectTop()-> void:
 	card.call("trigger")
 
 func affectDown()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 	
 	if c.row == pile[c.layer].size(): return
@@ -217,7 +213,7 @@ func affectDown()-> void:
 	card.call("trigger")
 
 func affectLeft()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 
 	if c.column == 0: return
@@ -225,7 +221,7 @@ func affectLeft()-> void:
 	card.call("trigger")
 
 func affectRight()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 	
 	if c.column == pile[c.layer][c.row].size(): return

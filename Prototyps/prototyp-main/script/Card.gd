@@ -15,39 +15,47 @@ var Description: String:
 ## Card Funcs
 func placed():
 	for action in Actions:
+		action.card = self
 		action.placed()
 
 
 func triggered():
 	for action in Actions:
+		action.card = self
 		action.triggered()
 
 
 func discarded():
 	for action in Actions:
+		action.card = self
 		action.discarded()
 
 
 func gotplacedon():
 	for action in Actions:
+		action.card = self
 		action.gotplacedon()
 
 	
 func drawn():
 	for action in Actions:
+		action.card = self
 		action.drawn()
 
 
 func bought():
 	for action in Actions:
+		action.card = self
 		action.bought()
 
 func roundend():
 	for action in Actions:
+		action.card = self
 		action.roundend()
 
 func undergroundtrigger():
 	for action in Actions:
+		action.card = self
 		action.undergroundtrigger()
 
 
