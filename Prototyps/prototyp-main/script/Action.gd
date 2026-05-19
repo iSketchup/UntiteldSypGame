@@ -99,20 +99,20 @@ func affectFOR()-> void:
 	
 func countNeighbour()-> int:
 	var c = getCard()
-	var count
+	var count = 0
 	var row = c.row
 	var col = c.column
 	
-	if row > 0 and pile[0][row - 1][col] != null: 
+	if row > 0 and pile[0][row - 1][col] != null: # Card Top
 		count += 1
 	
-	if row < pile[0].count() and pile[0][row + 1][col] != null: 
+	if row < pile[0].size() and pile[0][row + 1][col] != null: # Card Down
 		count += 1
 	
-	if col > 0 and pile[0][row][col + 1] != null: 
+	if col > 0 and pile[0][row][col - 1] != null: # Card Left
 		count += 1
 	
-	if col < pile[0][0].count() and pile[0][row][col - 1] != null: 
+	if col < pile[0][0].size() and pile[0][row][col + 1] != null: # Card right
 		count += 1
 	print(count)
 	return count
@@ -158,8 +158,11 @@ func getCard()-> Dictionary:
 	for l in range(pile.size()):
 		for r in range(pile[l].size()):
 			for c in range(pile[l][r].size()):
-				for card in pile[l][r][c]:
-					for action in card.actions:
+				if pile[l][r][c]:
+					var card = pile[l][r][c].card
+					print("Checking card: ", card, " Actions: ", card.Actions)
+					for action in card.Actions:
+						print("  action: ", action, " | self: ", self, " | match: ", action == self)
 						if action == self:
 							return {
 							"layer": l,
