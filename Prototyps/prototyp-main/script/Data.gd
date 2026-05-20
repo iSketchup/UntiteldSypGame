@@ -13,7 +13,7 @@ var DeckToLoad = Deck_1
 var Deck 			:Array[Card]= []
 var Drawpile		:Array[Card]= []
 var Handcards 		:Array[Card]= []
-var pile 			:Array[Variant] =[[[]]]
+var pile 			:Array[Variant] =[[]]
 
 #Deck init sachen
 func load_Deck():

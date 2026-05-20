@@ -103,6 +103,8 @@ func countNeighbour()-> int:
 	var count = 0
 	var row = c.row
 	var col = c.column
+	var edgeDown = col == pile[0][row].size() - 1
+	
 	
 	if row > 0 and pile[0][row - 1][col] != null: # Card Top
 		count += 1
@@ -115,25 +117,24 @@ func countNeighbour()-> int:
 	
 	if col < pile[0][0].size() - 1 and pile[0][row][col + 1] != null: # Card right
 		count += 1
+		
 	print(count)
 	return count
 
 func countAbove()-> int:
 	var c = getCardPosition()
-	var count
+	var count = 0
 	
 	for i in range(c.layer, pile.size()):
-		if pile[i][c.row][c.column] != null: count += 1
-	
+		if pile[i][c.row][c.column] != null and i != c.layer: count += 1
 	return count
 
 func countBelow()-> int:
 	var c = getCardPosition()
-	var count
+	var count = 0
 	
 	for i in range(0, c.layer):
 		if pile[i][c.row][c.column] != null: count += 1
-	
 	return count
 	
 	
@@ -144,13 +145,13 @@ func countInhand()-> int:
 	return Data.Handcards.size()
 	
 func countOnfield()-> int:
-	var count
+	var count = 0
 	
 	for layer in pile:
 		for row in layer:
 			for card in row:
 				if card != null: count += 1
-	
+	print(count)
 	return count
 	
 	
