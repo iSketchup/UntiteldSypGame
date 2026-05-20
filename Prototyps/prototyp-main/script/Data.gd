@@ -18,7 +18,7 @@ var pile 			:Array[Variant] =[[[]]]
 #Deck init sachen
 func load_Deck():
 	for Link in DeckToLoad:
-		var Cardloaded = load(Link)
+		var Cardloaded = load(Link).duplicate(true)
 		Deck.append(Cardloaded)
 
 
@@ -60,5 +60,3 @@ var Roundcount := 1
 
 var Health = 100;
 var Healthmod = 1;
-
-

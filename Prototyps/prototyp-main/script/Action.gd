@@ -64,7 +64,6 @@ func undergroundtrigger():
 	
 @export var value: = 1.0
 
-var card: Card
 
 var internal_value: = 1.0:
 	get:
@@ -157,16 +156,19 @@ func countOnfield()-> int:
 	
 
 func getCardPosition()-> Dictionary:
-	if card:
-		for l in range(pile.size()):
-			for r in range(pile[l].size()):
-				for c in range(pile[l][r].size()):
-					if pile[l][r][c] and pile[l][r][c].card.get_instance_id() == card.get_instance_id():
-						return {
-						"layer": l,
-						"row": r,
-						"column": c,
-						}
+	
+	for l in range(pile.size()):
+		for r in range(pile[l].size()):
+			for c in range(pile[l][r].size()):
+				if pile[l][r][c]:
+					var card = pile[l][r][c].card
+					for action in card.Actions:
+						if action.get_instance_id() == get_instance_id():
+							return {
+							"layer": l,
+							"row": r,
+							"column": c,
+							}
 	
 	return {
 	"layer": -1,
