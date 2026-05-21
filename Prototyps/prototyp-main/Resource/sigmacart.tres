@@ -6,9 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_j6de3"]
 script = ExtResource("1_vt0ss")
-trigger = 3
-FOR = "onfield"
 value = 2.0
+AFFECTS = "neighbour"
 action = 0
 metadata/_custom_type_script = "uid://destunr44qs40"
 
