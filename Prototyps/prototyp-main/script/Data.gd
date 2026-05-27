@@ -60,3 +60,10 @@ var Roundcount := 1
 
 var Health = 100;
 var Healthmod = 1;
+<<<<<<< HEAD
+
+var WallDistance = 200;
+
+
+=======
+>>>>>>> 27fa0f3f4ff643a99b3c445e3e6de0cc83d1d296

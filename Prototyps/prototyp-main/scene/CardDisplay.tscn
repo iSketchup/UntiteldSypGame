@@ -123,4 +123,25 @@ grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("9_8gqc6")
 
+[node name="Panel" type="Panel" parent="." unique_id=1167408179]
+offset_left = 401.0
+offset_top = 5.0
+offset_right = 710.0
+offset_bottom = 66.0
+
+[node name="ColorRectEnemyHealth" type="ColorRect" parent="Panel" unique_id=730254799]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -20.0
+offset_right = 140.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11227473, 0.59503174, 1.92523e-07, 1)
+
 [connection signal="pressed" from="NexTurn" to="." method="_on_nex_turn_pressed"]

@@ -1,13 +1,9 @@
 extends Node
 class_name Enemy
 
-var Health: float
-var Damage: float
-var speed:float
-func _ready() -> void:
-	Health = 50 * Data.Roundcount
-	Damage = 5 * Data.Roundcount
-	speed = 1.2 * Data.Roundcount
+var Health: float =50 * Data.Roundcount
+var DistanceTillWall = Data.WallDistance
+var speed:float = 1.1 * Data.Roundcount
 
 
 func Take_Damage(damage: float):
@@ -16,3 +12,7 @@ func Take_Damage(damage: float):
 	
 func Attack():
 	return Damage
+
+func Move():
+	DistanceTillWall -= speed
+	
