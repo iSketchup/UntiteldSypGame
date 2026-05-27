@@ -10,5 +10,6 @@ extends Node
 	
 	
 func trigger_action(func_name: String):
-	for card in Data.Handcards:
+	var cards = DataHelper.get_cards_list()
+	for card in cards:
 		card.call(func_name)

@@ -1,10 +1,10 @@
 extends Node
 
 # Raw data
-var Deck_1 = ["res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres",
-			"res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres",
-			"res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres", 
-			"res://Resource/sigmacart.tres","res://Resource/sigmacart.tres","res://Resource/sigmacart.tres"]
+var Deck_1 = ["res://Resource/sigma4.tres","res://Resource/sigma2.tres","res://Resource/sigma3.tres",
+			"res://Resource/sigma5.tres","res://Resource/sigma4.tres","res://Resource/sigma4.tres",
+			"res://Resource/sigma5.tres","res://Resource/sigma4.tres","res://Resource/sigma4.tres", 
+			"res://Resource/sigma4.tres","res://Resource/sigma4.tres","res://Resource/sigma4.tres"]
 
 # could be other => not useless
 var DeckToLoad = Deck_1

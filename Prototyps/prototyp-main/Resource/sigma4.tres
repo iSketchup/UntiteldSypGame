@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" format=3 uid="uid://bo4mfll5y1f4l"]
+
+[ext_resource type="Script" uid="uid://destunr44qs40" path="res://script/Action.gd" id="1_lj4hi"]
+[ext_resource type="Texture2D" uid="uid://8hgi1pu48dbx" path="res://Assets/x-bow.png" id="2_7b31i"]
+[ext_resource type="Script" uid="uid://cb6p1usrrowo8" path="res://script/Card.gd" id="2_f07ft"]
+
+[sub_resource type="Resource" id="Resource_pw2jg"]
+script = ExtResource("1_lj4hi")
+trigger = 4
+action = 0
+metadata/_custom_type_script = "uid://destunr44qs40"
+
+[resource]
+script = ExtResource("2_f07ft")
+image = ExtResource("2_7b31i")
+Actions = Array[ExtResource("1_lj4hi")]([SubResource("Resource_pw2jg")])
+metadata/_custom_type_script = "uid://cb6p1usrrowo8"

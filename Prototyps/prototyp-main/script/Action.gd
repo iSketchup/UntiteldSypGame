@@ -208,18 +208,17 @@ func affectTop()-> void:
 	var card
 	
 	if c.row == 0: return
-	print("TOP")
 	card = getTopCard(c.column, c.row - 1)
 		
 	if card:
 		card.call("triggered")
+		print("sigma")
 
 func affectDown()-> void:
 	var c = getCardPosition()
 	var card
 	
 	if c.row == pile[0].size() - 1: return
-	print("DOWN")
 	card = getTopCard(c.column, c.row + 1)
 	
 	if card:
@@ -230,7 +229,6 @@ func affectLeft()-> void:
 	var card
 
 	if c.column == 0: return
-	print("LEFT")
 	card = getTopCard(c.column - 1, c.row)
 	
 	if card:
@@ -241,7 +239,6 @@ func affectRight()-> void:
 	var card
 	
 	if c.column == pile[0][c.row].size() - 1: return
-	print("RIGHT")
 	card = getTopCard(c.column + 1, c.row)
 	
 	if card:
@@ -297,6 +294,7 @@ func _set(property: StringName, val) -> bool:
 func callFunc():
 	
 	call(ACTION_NAMES[action])
+	print(trigger,": ", internal_value)
 	affectFOR()
 	pass
 
