@@ -13,12 +13,12 @@ var DeckToLoad = Deck_1
 var Deck 			:Array[Card]= []
 var Drawpile		:Array[Card]= []
 var Handcards 		:Array[Card]= []
-var pile 			:Array[Variant] =[[[]]]
+var pile 			:Array[Variant] =[[]]
 
 #Deck init sachen
 func load_Deck():
 	for Link in DeckToLoad:
-		var Cardloaded = load(Link)
+		var Cardloaded = load(Link).duplicate(true)
 		Deck.append(Cardloaded)
 
 
@@ -60,7 +60,10 @@ var Roundcount := 1
 
 var Health = 100;
 var Healthmod = 1;
+<<<<<<< HEAD
 
 var WallDistance = 200;
 
 
+=======
+>>>>>>> 27fa0f3f4ff643a99b3c445e3e6de0cc83d1d296

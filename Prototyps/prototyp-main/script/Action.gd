@@ -44,6 +44,9 @@ func undergroundtrigger():
 @export_group("Actions")
 @export var isBase: bool = false
 
+@export_subgroup("Values")
+@export var value: = 1.0
+
 @export_enum(
 	"self",
 	'neighbour',
@@ -53,6 +56,7 @@ func undergroundtrigger():
 	'inhand',
 	'onfield') var FOR: String = "self"
 	
+@export_subgroup("Affects")
 @export_enum(
 	"none",
 	'neighbour',
@@ -61,15 +65,17 @@ func undergroundtrigger():
 	'left',
 	'right',
 	'corners') var AFFECTS: String = "none"
-	
-@export var value: = 1.0
+
+@export var TriggerFor : Triggers = Triggers.onTrigger
+
+
 
 var internal_value: = 1.0:
 	get:
 		return value * countFOR()
 		
-var pile = Data.pile
 
+var pile = Data.pile
 
 func countFOR()-> int:
 	match FOR:
@@ -84,7 +90,7 @@ func countFOR()-> int:
 	return 0
 	
 func affectFOR()-> void:
-	match FOR:
+	match AFFECTS:
 		"none": return
 		"neighbour": affectNeighbour()
 		"top": affectTop()
@@ -98,41 +104,40 @@ func affectFOR()-> void:
 	
 	
 func countNeighbour()-> int:
-	var c = getCard()
-	var count
+	var c = getCardPosition()
+	var count = 0
 	var row = c.row
-	var col = c.column
+	var col = c.column	
 	
-	if row > 0 and pile[0][row - 1][col] != null: 
+	if row > 0 and pile[0][row - 1][col] != null: # Card Top
 		count += 1
 	
-	if row < pile[0].count() and pile[0][row + 1][col] != null: 
+	if row < pile[0].size() - 1 and pile[0][row + 1][col] != null: # Card Down
 		count += 1
 	
-	if col > 0 and pile[0][row][col + 1] != null: 
+	if col > 0 and pile[0][row][col - 1] != null: # Card Left
 		count += 1
 	
-	if col < pile[0][0].count() and pile[0][row][col - 1] != null: 
+	if col < pile[0][0].size() - 1 and pile[0][row][col + 1] != null: # Card right
 		count += 1
+		
 	print(count)
 	return count
 
 func countAbove()-> int:
-	var c = getCard()
-	var count
+	var c = getCardPosition()
+	var count = 0
 	
 	for i in range(c.layer, pile.size()):
-		if pile[i][c.row][c.column] != null: count += 1
-	
+		if pile[i][c.row][c.column] != null and i != c.layer: count += 1
 	return count
 
 func countBelow()-> int:
-	var c = getCard()
-	var count
+	var c = getCardPosition()
+	var count = 0
 	
 	for i in range(0, c.layer):
 		if pile[i][c.row][c.column] != null: count += 1
-	
 	return count
 	
 	
@@ -143,33 +148,33 @@ func countInhand()-> int:
 	return Data.Handcards.size()
 	
 func countOnfield()-> int:
-	var count
+	var count = 0
 	
 	for layer in pile:
 		for row in layer:
 			for card in row:
 				if card != null: count += 1
-	
+	print(count)
 	return count
 	
 	
 
-func getCard()-> Dictionary:
+func getCardPosition()-> Dictionary:
+	
 	for l in range(pile.size()):
 		for r in range(pile[l].size()):
 			for c in range(pile[l][r].size()):
-				for card in pile[l][r][c]:
-					for action in card.actions:
-						if action == self:
+				if pile[l][r][c]:
+					var card = pile[l][r][c].card
+					for action in card.Actions:
+						if action.get_instance_id() == get_instance_id():
 							return {
 							"layer": l,
 							"row": r,
 							"column": c,
-							"card": card
 							}
-				
+	
 	return {
-	"card": null,
 	"layer": -1,
 	"row": -1,
 	"column": -1
@@ -179,13 +184,15 @@ func getCard()-> Dictionary:
 func getTopCard(column: int, row: int)-> Card:
 	var layer = 0
 	var card
-	while true:
+	while layer < pile.size():
 		card = pile[layer][row][column]
 		if card == null:
-			card = pile[layer - 1][row][column]
-			break
+			if layer != 0:
+				card = pile[layer - 1][row][column].card
+			return card
 		layer += 1
-	return card
+		
+	return pile[layer - 1][row][column].card
 	
 	
 func affectNeighbour()-> void:
@@ -197,37 +204,48 @@ func affectNeighbour()-> void:
 	
 
 func affectTop()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 	
 	if c.row == 0: return
+	print("TOP")
 	card = getTopCard(c.column, c.row - 1)
 		
-	card.call("trigger")
+	if card:
+		card.call("triggered")
 
 func affectDown()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 	
-	if c.row == pile[c.layer].size(): return
+	if c.row == pile[0].size() - 1: return
+	print("DOWN")
 	card = getTopCard(c.column, c.row + 1)
-	card.call("trigger")
+	
+	if card:
+		card.call("triggered")
 
 func affectLeft()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 
 	if c.column == 0: return
+	print("LEFT")
 	card = getTopCard(c.column - 1, c.row)
-	card.call("trigger")
+	
+	if card:
+		card.call("triggered")
 
 func affectRight()-> void:
-	var c = getCard()
+	var c = getCardPosition()
 	var card
 	
-	if c.column == pile[c.layer][c.row].size(): return
+	if c.column == pile[0][c.row].size() - 1: return
+	print("RIGHT")
 	card = getTopCard(c.column + 1, c.row)
-	card.call("trigger")
+	
+	if card:
+		card.call("triggered")
 	
 func affectCorners() -> void:
 	var cards = []
@@ -238,7 +256,7 @@ func affectCorners() -> void:
 	
 	for card in cards:
 		if card:
-			card.call("trigger")
+			card.call("triggered")
 					
 const ACTION_NAMES = [
 	"DamageFlat",
@@ -252,6 +270,7 @@ const ACTION_NAMES = [
 	"Money"
 ]
 
+@export_subgroup("Action")
 var action: int = 0
 
 func _get_property_list() -> Array[Dictionary]:
@@ -272,10 +291,13 @@ func _set(property: StringName, val) -> bool:
 		action = val
 		return true
 	return false
+	
+
 
 func callFunc():
-	# TODO: jaskja 	
+	
 	call(ACTION_NAMES[action])
+	affectFOR()
 	pass
 
 ## Action Funcs
