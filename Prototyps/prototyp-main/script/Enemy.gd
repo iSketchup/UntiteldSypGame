@@ -9,9 +9,6 @@ var speed:float = 1.1 * Data.Roundcount
 func Take_Damage(damage: float):
 	Health -= damage
 	
-	
-func Attack():
-	return Damage
 
 func Move():
 	DistanceTillWall -= speed

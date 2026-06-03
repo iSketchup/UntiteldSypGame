@@ -9,6 +9,7 @@ func enter():
 func Get_HandCards():
 	EventHandler.on_draw.emit(Data.Handsize)
 	
+
 func exit():
 	super.trigger_action("triggered")
 
